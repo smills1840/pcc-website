@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="theme-color" content="#0e0e0e"/>
+<link rel="icon" type="image/png" href="assets/logo.png"/>
+<link rel="apple-touch-icon" href="assets/logo.png"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Prestige Concrete Coatings"/>
+<meta property="og:title" content="Commercial Polished Concrete | Southwest Virginia | Prestige Concrete Coatings"/>
+<meta property="og:description" content="Commercial polished concrete for retail, warehouses, offices, and restaurants across Southwest Virginia."/>
+<meta property="og:url" content="https://prestigeconcretecoatings.com/polished-concrete.html"/>
+<meta property="og:image" content="https://prestigeconcretecoatings.com/assets/hero-epoxy-floor.jpg"/>
+<meta property="og:locale" content="en_US"/>
+<link rel="preload" as="image" href="assets/polished-retail.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<title>Commercial Polished Concrete | Southwest Virginia | Prestige Concrete Coatings</title>
+<meta name="description" content="Commercial polished concrete for retail, warehouses, offices, and restaurants across Southwest Virginia. Serving Blacksburg, Roanoke, Christiansburg, Radford and surrounding areas within 75 miles."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="animations.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "background": "#0e0e0e", "surface-container-low": "#131313",
+          "surface-container-lowest": "#000000", "surface-container": "#1a1a1a",
+          "surface-container-highest": "#262626", "surface-container-high": "#20201f",
+          "surface-variant": "#262626", "surface": "#0e0e0e",
+          "on-background": "#ffffff", "on-surface": "#ffffff",
+          "on-surface-variant": "#adaaaa", "outline": "#767575", "outline-variant": "#484847",
+          "primary": "#FEC300", "on-primary": "#000000",
+          "primary-fixed": "#fec301", "primary-fixed-dim": "#edb600", "primary-dim": "#edb600",
+          "secondary": "#fad940", "secondary-container": "#6f5d00",
+        },
+        fontFamily: { "headline": ["Space Grotesk"], "body": ["Manrope"], "label": ["Manrope"] },
+        borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .tectonic-gradient { background: linear-gradient(135deg, #FEC300 0%, #edb600 100%); }
+  .glass { background: rgba(26,26,26,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.05); }
+  body { background-color: #0e0e0e; color: #ffffff; font-family: 'Manrope', sans-serif; }
+  .img-placeholder {
+    background: linear-gradient(135deg, #1a1a1a 0%, #262626 50%, #1a1a1a 100%);
+    display: flex; align-items: center; justify-content: center;
+    color: #484847; font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase; text-align: center; padding: 1rem;
+    position: relative; overflow: hidden;
+  }
+  .img-placeholder::before {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(254,195,0,0.02) 10px, rgba(254,195,0,0.02) 20px);
+  }
+  #mobile-menu { display: none; }
+  #mobile-menu.open { display: flex; }
+  html { overflow-x: hidden; }
+  body { -webkit-tap-highlight-color: transparent; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  * { -webkit-tap-highlight-color: transparent; }
+  img { max-width: 100%; height: auto; }
+  /* ADA Accessibility */
+  :focus-visible { outline: 3px solid #FEC300; outline-offset: 3px; border-radius: 3px; }
+  :focus:not(:focus-visible) { outline: none; }
+  .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border-width:0; }
+  a, button { min-height: 44px; min-width: 44px; }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Prestige Concrete Coatings",
+  "telephone": "+15402124082",
+  "url": "https://prestigeconcretecoatings.com",
+  "logo": "https://prestigeconcretecoatings.com/assets/logo.png",
+  "description": "Premium epoxy garage floors, commercial coatings, and polished concrete throughout Southwest Virginia.",
+  "areaServed": ["Blacksburg", "Christiansburg", "Radford", "Roanoke", "Dublin", "Fairlawn", "Pulaski", "Wytheville", "Salem", "Vinton"],
+  "serviceType": ["Epoxy Garage Floor Coating", "Commercial Floor Coating", "Polished Concrete", "Basement Floor Coating", "Patio Coating"],
+  "priceRange": "$$",
+  "sameAs": []
+}
+</script>
+</head>
+<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-primary focus:text-on-primary focus:px-4 focus:py-2 focus:rounded-lg focus:font-bold">Skip to main content</a>
+<body class="selection:bg-primary selection:text-on-primary">
+
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-[#0e0e0e]/70 backdrop-blur-xl border-b border-white/5 shadow-[0_0_40px_rgba(254,195,0,0.05)]">
+  <div class="flex justify-between items-center px-4 sm:px-8 py-4 max-w-7xl mx-auto">
+    <a href="index.html" class="flex items-center">
+      <img alt="Prestige Concrete Coatings Logo" class="h-10 w-auto object-contain" src="assets/logo.png" style="mix-blend-mode:screen;"
+        onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span style="display:none" class="font-headline font-black text-primary text-xl tracking-tight">PRESTIGE</span>
+    </a>
+    <div class="hidden md:flex gap-8 items-center font-headline tracking-tight font-bold uppercase text-sm">
+      <a class="text-gray-400 hover:text-white transition-colors" href="residential-epoxy.html">Residential Epoxy</a>
+      <a class="text-gray-400 hover:text-white transition-colors" href="commercial-coatings.html">Commercial Coatings</a>
+      <a class="text-primary border-b-2 border-primary pb-1" href="polished-concrete.html">Polished Concrete</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="#quote-form" class="tectonic-gradient text-on-primary px-6 py-2 rounded-full font-bold text-sm uppercase tracking-wider hover:scale-105 active:scale-95 transition-all duration-300">Get a Quote</a>
+      <button id="mobile-menu-btn" class="md:hidden text-white p-1" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu"><span class="material-symbols-outlined" aria-hidden="true">menu</span></button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="md:hidden bg-[#0e0e0e] border-t border-white/5 px-8 py-6 flex-col gap-6">
+    <a href="tel:+15402124082" class="flex items-center gap-2 text-white font-bold text-sm" aria-label="Call Prestige Concrete Coatings"><span class="material-symbols-outlined text-primary text-lg" aria-hidden="true">phone</span>(540) 212-4082 — Call or Text</a>
+    <a class="font-headline font-bold uppercase text-sm text-gray-400 hover:text-white" href="residential-epoxy.html">Residential Epoxy</a>
+    <a class="font-headline font-bold uppercase text-sm text-gray-400 hover:text-white" href="commercial-coatings.html">Commercial Coatings</a>
+    <a class="font-headline font-bold uppercase text-sm text-primary" href="polished-concrete.html">Polished Concrete</a>
+    <a href="#quote-form" class="tectonic-gradient text-on-primary px-6 py-2.5 rounded-full font-bold text-xs uppercase text-center">Get a Quote</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section style="position:relative; min-height:100vh; display:flex; align-items:center; padding-top:5rem; overflow:hidden;">
+  <!-- Hero image — explicit inline styles for iOS Safari compatibility -->
+  <div style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; overflow:hidden;">
+    <img src="assets/polished-retail.jpg" alt="Polished concrete commercial floor" fetchpriority="high" loading="eager"
+      style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; object-position:center; display:block;"/>
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.25);"></div>
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to right, rgba(14,14,14,0.95) 0%, rgba(14,14,14,0.3) 60%, transparent 100%);"></div>
+  </div>
+  <div class="container mx-auto px-8 relative z-10">
+    <div class="max-w-3xl">
+      <span class="inline-block px-4 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold text-xs uppercase tracking-widest mb-6">Commercial Polished Concrete</span>
+      <h1 class="font-headline text-3xl sm:text-5xl md:text-7xl font-bold leading-tight mb-6" style="letter-spacing:-0.02em;">
+        Raw Concrete.<br/><span class="text-primary italic">Refined.</span>
+      </h1>
+      <p class="text-lg md:text-xl text-white/90 max-w-xl mb-10 leading-relaxed drop-shadow-md">
+        Unlock the beauty hidden inside your existing slab. Serving commercial and industrial facilities across Southwest Virginia — from Blacksburg to Roanoke and beyond.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#quote-form" class="tectonic-gradient text-on-primary px-10 py-4 rounded-full font-extrabold text-lg flex items-center gap-3 hover:scale-105 transition-transform">
+          Get a Free Assessment <span class="material-symbols-outlined">arrow_forward</span>
+        </a>
+        <a href="#process" class="glass px-10 py-4 rounded-full font-bold text-lg text-white hover:bg-white/10 transition-all">
+          See the Process
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- Stats bar -->
+  <div class="absolute bottom-12 left-0 right-0 z-30 hidden lg:block">
+    <div class="container mx-auto px-8">
+      <div class="bg-surface-container-high/60 backdrop-blur-md rounded-lg p-8 flex justify-around items-center border border-white/5 max-w-5xl">
+        <div class="text-center">
+          <div class="text-primary text-3xl font-headline font-bold">No</div>
+          <div class="text-xs uppercase tracking-widest text-on-surface-variant font-bold mt-1">Coatings or Wax</div>
+        </div>
+        <div class="h-10 w-px bg-outline-variant/30"></div>
+        <div class="text-center">
+          <div class="text-primary text-3xl font-headline font-bold">Lifetime</div>
+          <div class="text-xs uppercase tracking-widest text-on-surface-variant font-bold mt-1">Floor Lifespan</div>
+        </div>
+        <div class="h-10 w-px bg-outline-variant/30"></div>
+        <div class="text-center">
+          <div class="text-primary text-3xl font-headline font-bold">0</div>
+          <div class="text-xs uppercase tracking-widest text-on-surface-variant font-bold mt-1">VOC Emissions</div>
+        </div>
+        <div class="h-10 w-px bg-outline-variant/30"></div>
+        <div class="text-center">
+          <div class="text-primary text-3xl font-headline font-bold">24hr</div>
+          <div class="text-xs uppercase tracking-widest text-on-surface-variant font-bold mt-1">Return to Service</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Polished Concrete -->
+<section class="py-16 md:py-32 bg-background relative overflow-hidden">
+  <div class="container mx-auto px-8">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center mb-12 md:mb-24">
+      <div class="md:col-span-5">
+        <span class="text-primary font-headline text-xs tracking-widest uppercase mb-4 block">The Case for Polish</span>
+        <h2 class="font-headline text-4xl md:text-5xl font-bold mb-6" style="letter-spacing:-0.02em;">
+          Why Commercial Facilities Choose Polished Concrete
+        </h2>
+        <p class="text-on-surface-variant text-lg mb-8 leading-relaxed">
+          Unlike coatings that sit on top of the slab and can peel, polished concrete works <em>with</em> your existing floor — densifying and hardening it from within. The result is a surface that only improves with age.
+        </p>
+        <div class="space-y-4">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 mt-0.5">
+              <span class="material-symbols-outlined text-primary text-sm">savings</span>
+            </div>
+            <div>
+              <h4 class="font-headline font-bold mb-1">Lower Long-Term Cost</h4>
+              <p class="text-on-surface-variant text-sm">No recoating, no stripping, no wax. Maintenance is just a dust mop and occasional auto-scrubber.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 mt-0.5">
+              <span class="material-symbols-outlined text-primary text-sm">light_mode</span>
+            </div>
+            <div>
+              <h4 class="font-headline font-bold mb-1">Improved Light Reflectivity</h4>
+              <p class="text-on-surface-variant text-sm">A polished floor reflects ambient light, reducing the need for overhead lighting and lowering energy costs.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 mt-0.5">
+              <span class="material-symbols-outlined text-primary text-sm">forklift</span>
+            </div>
+            <div>
+              <h4 class="font-headline font-bold mb-1">Heavy Traffic Ready</h4>
+              <p class="text-on-surface-variant text-sm">Handles forklifts, pallet jacks, and constant foot traffic without cracking, chipping, or hazing.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="md:col-span-7 relative">
+        <div class="absolute -top-10 -right-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+        <img class="rounded-xl w-full h-[280px] sm:h-[400px] md:h-[500px] object-cover shadow-2xl" src="assets/polished-retail.jpg" alt="Polished concrete retail floor" loading="lazy"/>
+      </div>
+    </div>
+
+    <!-- Use Cases Grid -->
+    <div>
+      <h3 class="font-headline text-3xl font-bold mb-12 text-center">Ideal Commercial Environments</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-surface-container-high rounded-xl p-8 border border-white/5 group hover:border-primary/20 transition-all duration-300">
+          <span class="material-symbols-outlined text-primary text-3xl mb-4 block">storefront</span>
+          <h4 class="font-headline font-bold text-xl mb-3">Retail &amp; Showrooms</h4>
+          <p class="text-on-surface-variant text-sm leading-relaxed">High-gloss finishes that make products pop and give customers a premium first impression. Easy to clean after heavy foot traffic.</p>
+        </div>
+        <div class="bg-surface-container-high rounded-xl p-8 border border-white/5 group hover:border-primary/20 transition-all duration-300">
+          <span class="material-symbols-outlined text-primary text-3xl mb-4 block">warehouse</span>
+          <h4 class="font-headline font-bold text-xl mb-3">Warehouses &amp; Distribution</h4>
+          <p class="text-on-surface-variant text-sm leading-relaxed">Withstands constant forklift and pallet jack traffic. Dust-proof surface eliminates concrete dusting that can damage inventory and equipment.</p>
+        </div>
+        <div class="bg-surface-container-high rounded-xl p-8 border border-white/5 group hover:border-primary/20 transition-all duration-300">
+          <span class="material-symbols-outlined text-primary text-3xl mb-4 block">local_hospital</span>
+          <h4 class="font-headline font-bold text-xl mb-3">Healthcare &amp; Education</h4>
+          <p class="text-on-surface-variant text-sm leading-relaxed">Seamless, non-porous surface is easy to sanitize and maintain. LEED-friendly with zero VOCs and no chemical coatings required.</p>
+        </div>
+        <div class="bg-surface-container-high rounded-xl p-8 border border-white/5 group hover:border-primary/20 transition-all duration-300">
+          <span class="material-symbols-outlined text-primary text-3xl mb-4 block">restaurant</span>
+          <h4 class="font-headline font-bold text-xl mb-3">Restaurants &amp; Hospitality</h4>
+          <p class="text-on-surface-variant text-sm leading-relaxed">Stylish, low-maintenance floors for front-of-house spaces. Resistant to spills, grease, and heavy rolling equipment.</p>
+        </div>
+        <div class="bg-surface-container-high rounded-xl p-8 border border-white/5 group hover:border-primary/20 transition-all duration-300">
+          <span class="material-symbols-outlined text-primary text-3xl mb-4 block">directions_car</span>
+          <h4 class="font-headline font-bold text-xl mb-3">Auto Dealerships</h4>
+          <p class="text-on-surface-variant text-sm leading-relaxed">Mirror-finish floors that reflect vehicles and elevate the showroom experience. Resists tire marks, oil, and brake fluid.</p>
+        </div>
+        <div class="bg-surface-container-high rounded-xl p-8 border border-white/5 group hover:border-primary/20 transition-all duration-300">
+          <span class="material-symbols-outlined text-primary text-3xl mb-4 block">apartment</span>
+          <h4 class="font-headline font-bold text-xl mb-3">Office &amp; Mixed-Use</h4>
+          <p class="text-on-surface-variant text-sm leading-relaxed">Sophisticated matte-to-satin finishes that suit modern office aesthetics. Pairs beautifully with exposed ceilings and industrial design.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- The Polishing Process -->
+<section id="process" class="py-16 md:py-32 bg-surface-container-lowest relative overflow-hidden">
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full" style="background: radial-gradient(circle at 50% 50%, rgba(254,195,0,0.05) 0%, transparent 65%);"></div>
+  <div class="container mx-auto px-8 relative z-10">
+    <div class="text-center mb-20">
+      <span class="text-primary font-headline text-xs tracking-widest uppercase mb-4 block">How It Works</span>
+      <h2 class="font-headline text-4xl md:text-5xl font-bold mb-6" style="letter-spacing:-0.02em;">The Multi-Stage Polishing Process</h2>
+      <p class="text-on-surface-variant max-w-2xl mx-auto text-lg">Each stage uses progressively finer diamond tooling to grind, hone, and polish the concrete surface to your specified sheen level.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="relative group">
+        <div class="bg-surface-container-high rounded-xl p-8 border border-white/5 group-hover:border-primary/20 transition-all duration-300 h-full">
+          <div class="text-6xl font-black text-white/5 font-headline mb-4 select-none">01</div>
+          <div class="w-12 h-12 rounded-lg tectonic-gradient flex items-center justify-center mb-6">
+            <span class="material-symbols-outlined text-on-primary">construction</span>
+          </div>
+          <h4 class="font-headline font-bold text-xl mb-3">Grinding</h4>
+          <p class="text-on-surface-variant text-sm leading-relaxed">Coarse metal-bond diamonds remove surface blemishes, old coatings, and high spots. Opens the concrete profile for densifier penetration.</p>
+          <div class="mt-4 text-[11px] font-bold uppercase tracking-widest text-primary">16–30 Grit</div>
+        </div>
+      </div>
+      <div class="relative group">
+        <div class="bg-surface-container-high rounded-xl p-8 border border-white/5 group-hover:border-primary/20 transition-all duration-300 h-full">
+          <div class="text-6xl font-black text-white/5 font-headline mb-4 select-none">02</div>
+          <div class="w-12 h-12 rounded-lg tectonic-gradient flex items-center justify-center mb-6">
+            <span class="material-symbols-outlined text-on-primary">science</span>
+          </div>
+          <h4 class="font-headline font-bold text-xl mb-3">Densifying</h4>
+          <p class="text-on-surface-variant text-sm leading-relaxed">A lithium silicate densifier is applied to chemically harden the slab. This fills micro-pores and dramatically increases surface hardness and abrasion resistance.</p>
+          <div class="mt-4 text-[11px] font-bold uppercase tracking-widest text-primary">Chemical Treatment</div>
+        </div>
+      </div>
+      <div class="relative group">
+        <div class="bg-surface-container-high rounded-xl p-8 border border-white/5 group-hover:border-primary/20 transition-all duration-300 h-full">
+          <div class="text-6xl font-black text-white/5 font-headline mb-4 select-none">03</div>
+          <div class="w-12 h-12 rounded-lg tectonic-gradient flex items-center justify-center mb-6">
+            <span class="material-symbols-outlined text-on-primary">blur_on</span>
+          </div>
+          <h4 class="font-headline font-bold text-xl mb-3">Honing</h4>
+          <p class="text-on-surface-variant text-sm leading-relaxed">Transition to resin-bond diamonds in progressively finer grits to remove scratches from previous steps and begin developing sheen and clarity.</p>
+          <div class="mt-4 text-[11px] font-bold uppercase tracking-widest text-primary">50–400 Grit</div>
+        </div>
+      </div>
+      <div class="relative group">
+        <div class="bg-surface-container-high rounded-xl p-8 border border-white/5 group-hover:border-primary/20 transition-all duration-300 h-full">
+          <div class="text-6xl font-black text-white/5 font-headline mb-4 select-none">04</div>
+          <div class="w-12 h-12 rounded-lg tectonic-gradient flex items-center justify-center mb-6">
+            <span class="material-symbols-outlined text-on-primary">lens</span>
+          </div>
+          <h4 class="font-headline font-bold text-xl mb-3">Polishing</h4>
+          <p class="text-on-surface-variant text-sm leading-relaxed">Fine to ultra-fine resin diamonds bring the floor to its final sheen — from a matte industrial look all the way to a mirror-like high-gloss finish.</p>
+          <div class="mt-4 text-[11px] font-bold uppercase tracking-widest text-primary">800–3000 Grit</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sheen levels -->
+    <div class="mt-16 bg-surface-container-high rounded-xl p-10 border border-white/5">
+      <h3 class="font-headline text-2xl font-bold mb-8 text-center">Choose Your Sheen Level</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="text-center">
+          <div class="w-full h-16 rounded-lg bg-surface-container-highest border border-white/10 mb-3" style="background: linear-gradient(135deg, #2a2a2a, #1a1a1a);"></div>
+          <div class="font-headline font-bold text-sm mb-1">Matte</div>
+          <div class="text-[11px] text-on-surface-variant uppercase tracking-widest">Industrial / Utilitarian</div>
+        </div>
+        <div class="text-center">
+          <div class="w-full h-16 rounded-lg mb-3" style="background: linear-gradient(135deg, #333, #222); box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);"></div>
+          <div class="font-headline font-bold text-sm mb-1">Satin</div>
+          <div class="text-[11px] text-on-surface-variant uppercase tracking-widest">Office / Retail</div>
+        </div>
+        <div class="text-center">
+          <div class="w-full h-16 rounded-lg mb-3" style="background: linear-gradient(135deg, #3a3a3a, #252525); box-shadow: inset 0 2px 4px rgba(255,255,255,0.08);"></div>
+          <div class="font-headline font-bold text-sm mb-1">Semi-Gloss</div>
+          <div class="text-[11px] text-on-surface-variant uppercase tracking-widest">Showrooms / Hospitality</div>
+        </div>
+        <div class="text-center">
+          <div class="w-full h-16 rounded-lg mb-3" style="background: linear-gradient(135deg, #444, #2a2a2a); box-shadow: inset 0 2px 8px rgba(254,195,0,0.08), 0 4px 16px rgba(0,0,0,0.5);"></div>
+          <div class="font-headline font-bold text-sm mb-1 text-primary">High Gloss</div>
+          <div class="text-[11px] text-on-surface-variant uppercase tracking-widest">Premium / Mirror Finish</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Comparison: Polished vs Coated -->
+<section class="py-32 bg-background">
+  <div class="container mx-auto px-8">
+    <div class="text-center mb-16">
+      <h2 class="font-headline text-4xl font-bold mb-4" style="letter-spacing:-0.02em;">Polished Concrete vs. Epoxy Coating</h2>
+      <p class="text-on-surface-variant max-w-xl mx-auto">Both are excellent — but polished concrete is often the right long-term choice for high-traffic commercial environments.</p>
+    </div>
+    <div class="overflow-x-auto -mx-4 px-4">
+      <table class="w-full text-sm" style="min-width:520px;">
+        <thead>
+          <tr class="border-b border-white/10">
+            <th class="text-left py-4 px-6 text-on-surface-variant font-bold uppercase tracking-widest text-xs w-1/3"></th>
+            <th class="py-4 px-6 text-center">
+              <span class="inline-block bg-primary text-on-primary font-headline font-bold uppercase text-xs px-4 py-2 rounded-full">Polished Concrete</span>
+            </th>
+            <th class="py-4 px-6 text-center text-on-surface-variant font-bold uppercase tracking-widest text-xs">Epoxy Coating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-white/5 hover:bg-surface-container-high/30 transition-colors">
+            <td class="py-4 px-6 font-bold">Lifespan</td>
+            <td class="py-4 px-6 text-center text-primary font-bold">Lifetime (with maintenance)</td>
+            <td class="py-4 px-6 text-center text-on-surface-variant">5–10 years</td>
+          </tr>
+          <tr class="border-b border-white/5 hover:bg-surface-container-high/30 transition-colors">
+            <td class="py-4 px-6 font-bold">Peeling / Delamination Risk</td>
+            <td class="py-4 px-6 text-center text-primary font-bold">None — part of the slab</td>
+            <td class="py-4 px-6 text-center text-on-surface-variant">Possible over time</td>
+          </tr>
+          <tr class="border-b border-white/5 hover:bg-surface-container-high/30 transition-colors">
+            <td class="py-4 px-6 font-bold">Maintenance</td>
+            <td class="py-4 px-6 text-center text-primary font-bold">Dust mop &amp; auto-scrub</td>
+            <td class="py-4 px-6 text-center text-on-surface-variant">Periodic recoating</td>
+          </tr>
+          <tr class="border-b border-white/5 hover:bg-surface-container-high/30 transition-colors">
+            <td class="py-4 px-6 font-bold">VOC Emissions</td>
+            <td class="py-4 px-6 text-center text-primary font-bold">Zero</td>
+            <td class="py-4 px-6 text-center text-on-surface-variant">Low to moderate</td>
+          </tr>
+          <tr class="border-b border-white/5 hover:bg-surface-container-high/30 transition-colors">
+            <td class="py-4 px-6 font-bold">Forklift Traffic</td>
+            <td class="py-4 px-6 text-center text-primary font-bold">Excellent</td>
+            <td class="py-4 px-6 text-center text-on-surface-variant">Good</td>
+          </tr>
+          <tr class="hover:bg-surface-container-high/30 transition-colors">
+            <td class="py-4 px-6 font-bold">Decorative Options</td>
+            <td class="py-4 px-6 text-center text-on-surface-variant">Sheen levels, dyes, aggregates</td>
+            <td class="py-4 px-6 text-center text-primary font-bold">Flakes, metallics, colors</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Quote Form -->
+<section id="quote-form" class="py-24 relative overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <div class="absolute top-0 left-0 w-full h-full" style="background: radial-gradient(circle at 30% 50%, rgba(254,195,0,0.08), transparent)"></div>
+  </div>
+  <div class="max-w-7xl mx-auto px-8 relative z-10">
+    <div class="glass rounded-2xl lg:rounded-[40px] overflow-hidden border border-white/10 flex flex-col lg:flex-row">
+      <div class="lg:w-1/2 p-5 sm:p-8 lg:p-20 flex flex-col justify-center">
+        <h2 class="text-5xl font-headline font-bold text-white mb-8">Get a Free <span class="text-primary">Site Assessment.</span></h2>
+        <p class="text-on-surface-variant text-lg mb-10">Our polishing specialists will evaluate your existing slab, assess aggregate exposure potential, and recommend the right finish level for your facility.</p>
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
+            <span class="material-symbols-outlined text-primary">phone_in_talk</span>
+          </div>
+          <div>
+            <p class="text-xs text-on-surface-variant uppercase font-bold tracking-widest">Call Us Directly</p>
+            <a href="tel:+15402124082" class="text-white font-headline font-bold text-xl hover:text-primary transition-colors" aria-label="Call Prestige Concrete Coatings">(540) 212-4082</a>
+          </div>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
+            <span class="material-symbols-outlined text-primary">verified</span>
+          </div>
+          <div>
+            <p class="text-xs text-on-surface-variant uppercase font-bold tracking-widest">Free of charge</p>
+            <p class="text-white font-bold">No obligation site visit &amp; quote</p>
+          </div>
+        </div>
+      </div>
+      <div class="lg:w-1/2 bg-surface-container-high/50 p-6 sm:p-10 lg:p-20 border-l border-white/5">
+        <div class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-xs font-bold text-white/40 uppercase mb-2 ml-1">Full Name</label>
+              <input class="w-full bg-surface-variant border-none rounded-xl text-white placeholder-white/20 focus:ring-2 focus:ring-primary transition-all px-4 py-3" placeholder="Jane Smith" type="text"/>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-white/40 uppercase mb-2 ml-1">Email Address</label>
+              <input class="w-full bg-surface-variant border-none rounded-xl text-white placeholder-white/20 focus:ring-2 focus:ring-primary transition-all px-4 py-3" placeholder="jane@company.com" type="email"/>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-white/40 uppercase mb-2 ml-1">Phone Number</label>
+            <input class="w-full bg-surface-variant border-none rounded-xl text-white placeholder-white/20 focus:ring-2 focus:ring-primary transition-all px-4 py-3" placeholder="(555) 000-0000" type="tel"/>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-white/40 uppercase mb-2 ml-1">Facility Type</label>
+            <select class="w-full bg-surface-variant border-none rounded-xl text-white focus:ring-2 focus:ring-primary transition-all px-4 py-3 appearance-none">
+              <option>Select type...</option>
+              <option>Warehouse / Distribution</option>
+              <option>Retail / Showroom</option>
+              <option>Restaurant / Hospitality</option>
+              <option>Healthcare / Education</option>
+              <option>Auto Dealership</option>
+              <option>Office / Mixed-Use</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-white/40 uppercase mb-2 ml-1">Approx. Square Footage</label>
+            <select class="w-full bg-surface-variant border-none rounded-xl text-white focus:ring-2 focus:ring-primary transition-all px-4 py-3 appearance-none">
+              <option>Select size...</option>
+              <option>Under 2,000 sq ft</option>
+              <option>2,000 – 5,000 sq ft</option>
+              <option>5,000 – 20,000 sq ft</option>
+              <option>20,000+ sq ft</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-white/40 uppercase mb-2 ml-1">Project Details (Optional)</label>
+            <textarea class="w-full bg-surface-variant border-none rounded-xl text-white placeholder-white/20 focus:ring-2 focus:ring-primary transition-all px-4 py-3" placeholder="Tell us about your space, timeline, or any specific requirements..." rows="3"></textarea>
+          </div>
+          <button class="w-full tectonic-gradient text-on-primary font-black uppercase tracking-widest py-4 rounded-xl shadow-xl hover:scale-[1.02] active:scale-100 transition-all" type="button">
+            Request Free Assessment
+          </button>
+          <p class="text-center text-xs text-on-surface-variant">Typical response within 2 business hours. No spam, ever.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="w-full border-t border-white/5 bg-[#0e0e0e]">
+  <div class="max-w-7xl mx-auto px-5 sm:px-12 py-12 sm:py-16">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+      <!-- Brand -->
+      <div class="md:col-span-1">
+        <div class="mb-4">
+          <img alt="Prestige Concrete Coatings Logo" class="h-8 w-auto object-contain" src="assets/logo.png" style="mix-blend-mode:screen;"
+            onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='block'"/>
+          <span style="display:none" class="font-headline font-black text-primary">PRESTIGE</span>
+        </div>
+        <p class="text-xs text-gray-500 leading-relaxed mb-4">Premium concrete coating solutions serving Southwest Virginia within 75 miles of the New River Valley.</p>
+        <a href="tel:+15402124082" class="text-primary font-bold text-sm hover:text-yellow-300 transition-colors block" aria-label="Call Prestige Concrete Coatings">(540) 212-4082</a>
+        <span class="text-xs text-gray-500">Call or Text</span>
+      </div>
+      <!-- Services -->
+      <div>
+        <h3 class="font-headline font-bold text-xs uppercase tracking-widest text-white mb-4">Services</h3>
+        <nav aria-label="Footer services navigation">
+          <ul class="space-y-2">
+            <li><a class="text-sm text-gray-400 hover:text-primary transition-colors" href="residential-epoxy.html">Residential Epoxy</a></li>
+            <li><a class="text-sm text-gray-400 hover:text-primary transition-colors" href="commercial-coatings.html">Commercial Coatings</a></li>
+            <li><a class="text-sm text-gray-400 hover:text-primary transition-colors" href="polished-concrete.html">Polished Concrete</a></li>
+            <li><a class="text-sm text-gray-400 hover:text-primary transition-colors" href="garage-makeovers.html">Garage Makeovers</a></li>
+          </ul>
+        </nav>
+      </div>
+      <!-- Company -->
+      <div>
+        <h3 class="font-headline font-bold text-xs uppercase tracking-widest text-white mb-4">Company</h3>
+        <nav aria-label="Footer company navigation">
+          <ul class="space-y-2">
+            <li><a class="text-sm text-gray-400 hover:text-primary transition-colors" href="gallery.html">Project Gallery</a></li>
+            <li><a class="text-sm text-gray-400 hover:text-primary transition-colors" href="service-areas.html">Service Areas</a></li>
+            <li><a class="text-sm text-gray-400 hover:text-primary transition-colors" href="contact.html">Contact Us</a></li>
+            <li><a class="text-sm text-gray-400 hover:text-primary transition-colors" href="privacy.html">Privacy Policy</a></li>
+            <li><a class="text-sm text-gray-400 hover:text-primary transition-colors" href="terms.html">Terms of Service</a></li>
+          </ul>
+        </nav>
+      </div>
+      <!-- CTA -->
+      <div>
+        <h3 class="font-headline font-bold text-xs uppercase tracking-widest text-white mb-4">Get Started</h3>
+        <p class="text-xs text-gray-500 mb-4 leading-relaxed">Free on-site assessments throughout Southwest Virginia. Most quotes within 24 hours.</p>
+        <a href="garage-makeovers.html#quote-form" class="inline-block tectonic-gradient text-on-primary font-headline font-bold uppercase tracking-widest text-xs px-6 py-3 rounded-full hover:scale-105 transition-transform">
+          Get a Free Quote
+        </a>
+      </div>
+    </div>
+    <!-- Bottom bar -->
+    <div class="border-t border-white/5 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3">
+      <p class="text-xs text-gray-500">© 2025 Prestige Concrete Coatings. All rights reserved.</p>
+      <p class="text-xs text-gray-500">Licensed &amp; Insured · Southwest Virginia</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', !expanded);
+    menu.classList.toggle('open');
+  });
+</script>
+<script src="animations.js"></script>
+</body>
+</html>

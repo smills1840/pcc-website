@@ -1,0 +1,139 @@
+/* ============================================================
+   PRESTIGE — Global Animation & Scroll Reveal System
+   ============================================================ */
+
+/* --- Scroll reveal base states --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.75s cubic-bezier(0.16,1,0.3,1), transform 0.75s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.reveal-left  { transform: translateX(-40px); }
+.reveal.reveal-right { transform: translateX( 40px); }
+.reveal.reveal-scale { transform: scale(0.94) translateY(16px); }
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Stagger children */
+.stagger > * { opacity:0; transform:translateY(24px); transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+.stagger.visible > *:nth-child(1) { opacity:1; transform:none; transition-delay:0s;    }
+.stagger.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay:0.1s;  }
+.stagger.visible > *:nth-child(3) { opacity:1; transform:none; transition-delay:0.2s;  }
+.stagger.visible > *:nth-child(4) { opacity:1; transform:none; transition-delay:0.3s;  }
+.stagger.visible > *:nth-child(5) { opacity:1; transform:none; transition-delay:0.4s;  }
+.stagger.visible > *:nth-child(6) { opacity:1; transform:none; transition-delay:0.5s;  }
+
+/* --- Hero entrance --- */
+@keyframes heroFadeUp {
+  from { opacity:0; transform:translateY(48px); }
+  to   { opacity:1; transform:none; }
+}
+.hero-line-1 { animation: heroFadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.1s both; }
+.hero-line-2 { animation: heroFadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.25s both; }
+.hero-line-3 { animation: heroFadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.4s both; }
+.hero-line-4 { animation: heroFadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.55s both; }
+.hero-line-5 { animation: heroFadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.7s both; }
+
+/* --- Stat counter pulse --- */
+@keyframes statPop {
+  0%   { transform:scale(0.7); opacity:0; }
+  70%  { transform:scale(1.06); }
+  100% { transform:scale(1); opacity:1; }
+}
+.stat-pop { animation: statPop 0.6s cubic-bezier(0.34,1.56,0.64,1) both; }
+
+/* --- Gold shimmer on headings --- */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.shimmer-text {
+  background: linear-gradient(90deg, #FEC300 0%, #fff8dc 40%, #FEC300 60%, #edb600 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* --- Floating glow orb --- */
+@keyframes floatOrb {
+  0%,100% { transform:translate(0,0) scale(1); }
+  33%     { transform:translate(20px,-30px) scale(1.05); }
+  66%     { transform:translate(-15px,20px) scale(0.97); }
+}
+.float-orb { animation: floatOrb 8s ease-in-out infinite; }
+
+/* --- Nav link underline slide --- */
+nav a { position:relative; }
+nav a::after {
+  content:''; position:absolute; bottom:-2px; left:0;
+  width:0; height:2px; background:#FEC300;
+  transition: width 0.3s cubic-bezier(0.16,1,0.3,1);
+}
+nav a:hover::after { width:100%; }
+nav a.active-nav::after { width:100%; }
+
+/* --- Card hover lift --- */
+.card-lift {
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease;
+}
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(254,195,0,0.08), 0 8px 24px rgba(0,0,0,0.4);
+}
+
+/* --- Button pulse ring on hover --- */
+.btn-pulse { position:relative; overflow:visible; }
+.btn-pulse::before {
+  content:''; position:absolute; inset:-4px; border-radius:inherit;
+  background: transparent; border:2px solid rgba(254,195,0,0);
+  transition: border-color 0.3s ease, inset 0.3s ease;
+}
+.btn-pulse:hover::before {
+  inset:-8px; border-color: rgba(254,195,0,0.3);
+}
+
+/* --- Image zoom container --- */
+.img-zoom { overflow:hidden; }
+.img-zoom img, .img-zoom .img-placeholder {
+  transition: transform 0.9s cubic-bezier(0.16,1,0.3,1);
+}
+.img-zoom:hover img, .img-zoom:hover .img-placeholder { transform:scale(1.05); }
+
+/* --- Divider line draw --- */
+@keyframes drawLine {
+  from { width:0; }
+  to   { width:100%; }
+}
+.draw-line { animation: drawLine 1s cubic-bezier(0.16,1,0.3,1) 0.5s both; }
+
+/* --- Number count-up (JS controlled) --- */
+.count-up { display:inline-block; }
+
+/* --- Section title accent bar --- */
+.title-bar::before {
+  content:''; display:block; width:3rem; height:3px;
+  background: #FEC300; border-radius:9999px;
+  margin-bottom:1.25rem;
+  animation: drawLine 0.8s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+/* --- Testimonial card shimmer border --- */
+@keyframes borderGlow {
+  0%,100% { box-shadow:0 0 0 0 rgba(254,195,0,0); }
+  50%     { box-shadow:0 0 0 1px rgba(254,195,0,0.2); }
+}
+.testimonial-card:hover { animation: borderGlow 1.5s ease-in-out infinite; }
+
+/* --- Scroll indicator bounce --- */
+@keyframes bounceDown {
+  0%,100% { transform:translateX(-50%) translateY(0); }
+  50%     { transform:translateX(-50%) translateY(8px); }
+}
+.scroll-indicator { animation: bounceDown 2s ease-in-out infinite; }
+
+/* --- Page transition fade --- */
+body { animation: heroFadeUp 0.5s ease both; }

@@ -1,0 +1,31 @@
+<!-- SHARED NAV - included in each page -->
+<nav class="fixed top-0 w-full z-50 bg-[#0e0e0e]/70 backdrop-blur-xl border-b border-white/5 shadow-[0_0_40px_rgba(254,195,0,0.05)]">
+  <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+    <a href="index.html" class="flex items-center">
+      <!-- REPLACE src WITH YOUR LOGO FILE PATH e.g. src="assets/logo.png" -->
+      <img alt="Prestige Concrete Coatings Logo" class="h-10 w-auto object-contain" src="assets/logo.png"
+        onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+      <span style="display:none" class="font-headline font-black text-primary text-xl tracking-tight">PRESTIGE</span>
+    </a>
+    <div class="hidden md:flex items-center gap-10">
+      <a class="nav-link font-headline tracking-tight font-bold uppercase text-sm text-gray-400 hover:text-white transition-colors" href="residential-epoxy.html" data-page="residential">Residential Epoxy</a>
+      <a class="nav-link font-headline tracking-tight font-bold uppercase text-sm text-gray-400 hover:text-white transition-colors" href="commercial-coatings.html" data-page="commercial">Commercial Coatings</a>
+      <a class="nav-link font-headline tracking-tight font-bold uppercase text-sm text-gray-400 hover:text-white transition-colors" href="garage-makeovers.html" data-page="garage">Concrete Polishing</a>
+    </div>
+    <!-- Mobile hamburger -->
+    <div class="flex items-center gap-4">
+      <a href="garage-makeovers.html" class="bg-primary text-on-primary font-headline font-bold uppercase text-xs px-6 py-2.5 rounded-full hover:scale-105 transition-transform duration-300 active:scale-95">
+        Get a Quote
+      </a>
+      <button id="mobile-menu-btn" class="md:hidden text-white">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </div>
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-[#0e0e0e] border-t border-white/5 px-8 py-6 flex flex-col gap-6">
+    <a class="font-headline font-bold uppercase text-sm text-gray-400 hover:text-white transition-colors" href="residential-epoxy.html">Residential Epoxy</a>
+    <a class="font-headline font-bold uppercase text-sm text-gray-400 hover:text-white transition-colors" href="commercial-coatings.html">Commercial Coatings</a>
+    <a class="font-headline font-bold uppercase text-sm text-gray-400 hover:text-white transition-colors" href="garage-makeovers.html">Concrete Polishing</a>
+  </div>
+</nav>
