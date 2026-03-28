@@ -1,0 +1,149 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets"
+public_folder: "assets"
+
+site_url: https://prestigeconcretecoatings.com
+display_url: https://prestigeconcretecoatings.com
+
+collections:
+
+  # ── PROJECT GALLERY ────────────────────────────────────────────
+  - name: "gallery"
+    label: "Project Gallery"
+    label_singular: "Project"
+    folder: "_projects"
+    create: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    summary: "{{title}} — {{location}}"
+    fields:
+      - label: "Project Title"
+        name: "title"
+        widget: "string"
+        hint: "e.g. 2-Car Garage — Full Flake System"
+
+      - label: "Location"
+        name: "location"
+        widget: "string"
+        hint: "e.g. Blacksburg, VA"
+
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Garage Floor", value: "garage" }
+          - { label: "Commercial", value: "commercial" }
+          - { label: "Residential", value: "residential" }
+          - { label: "Polished Concrete", value: "polished" }
+          - { label: "Patio / Pool Deck", value: "patio" }
+
+      - label: "Project Photo"
+        name: "image"
+        widget: "image"
+        hint: "Upload a photo of the finished project"
+
+      - label: "Description"
+        name: "description"
+        widget: "text"
+        hint: "2-3 sentences describing the project — what system was used, any challenges, result"
+
+      - label: "Featured"
+        name: "featured"
+        widget: "boolean"
+        default: false
+        hint: "Featured projects appear first in the gallery"
+
+      - label: "Date Completed"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_only: true
+        required: false
+
+  # ── BLOG POSTS ─────────────────────────────────────────────────
+  - name: "blog"
+    label: "Blog Posts"
+    label_singular: "Blog Post"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "json"
+    format: "json"
+    summary: "{{title}} ({{date}})"
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        hint: "e.g. Why Polyaspartic is Better Than Epoxy"
+
+      - label: "Publish Date"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_only: true
+
+      - label: "Featured Image"
+        name: "image"
+        widget: "image"
+        required: false
+        hint: "Optional header image for the post"
+
+      - label: "Summary"
+        name: "summary"
+        widget: "string"
+        hint: "One sentence shown in blog listings and Google search results"
+
+      - label: "Content"
+        name: "body"
+        widget: "markdown"
+        hint: "Write your full blog post here. Use the toolbar to add headings, bold text, and links."
+
+      - label: "Published"
+        name: "published"
+        widget: "boolean"
+        default: true
+        hint: "Uncheck to save as a draft without publishing"
+
+  # ── SITE SETTINGS ──────────────────────────────────────────────
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "Business Info"
+        name: "business"
+        file: "_data/business.json"
+        extension: "json"
+        format: "json"
+        fields:
+          - label: "Business Name"
+            name: "name"
+            widget: "string"
+
+          - label: "Phone Number"
+            name: "phone"
+            widget: "string"
+            hint: "e.g. (540) 212-4082"
+
+          - label: "Tagline"
+            name: "tagline"
+            widget: "string"
+            hint: "Short tagline shown in footer"
+
+          - label: "Service Radius (miles)"
+            name: "radius"
+            widget: "number"
+            default: 75
+
+          - label: "Primary Cities Served"
+            name: "cities"
+            widget: "list"
+            hint: "List your main service cities"
+
+          - label: "Google Reviews Link"
+            name: "google_reviews"
+            widget: "string"
+            required: false
+            hint: "Paste your Google Business review link here"
