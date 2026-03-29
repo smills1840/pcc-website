@@ -73,7 +73,7 @@
     </div>
     <div class="flex items-center gap-3">
       <a href="tel:+15402124082" class="hidden lg:flex items-center gap-2 text-white/70 hover:text-primary transition-colors text-sm font-bold" aria-label="Call us"><span class="material-symbols-outlined text-primary" style="font-size:18px;" aria-hidden="true">phone</span>(540) 212-4082</a>
-      <a href="garage-makeovers.html#quote-form" class="tectonic-gradient text-on-primary px-6 py-2 rounded-full font-bold text-sm uppercase tracking-wider hover:scale-105 transition-all">Get a Quote</a>
+      <a href="contact.html" class="tectonic-gradient text-on-primary px-6 py-2 rounded-full font-bold text-sm uppercase tracking-wider hover:scale-105 transition-all">Get a Quote</a>
       <button id="mobile-menu-btn" class="md:hidden text-white p-1" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu"><span class="material-symbols-outlined" aria-hidden="true">menu</span></button>
     </div>
   </div>
@@ -82,7 +82,7 @@
     <a class="font-headline font-bold uppercase text-sm text-gray-400 hover:text-white" href="residential-epoxy.html">Residential Epoxy</a>
     <a class="font-headline font-bold uppercase text-sm text-gray-400 hover:text-white" href="commercial-coatings.html">Commercial Coatings</a>
     <a class="font-headline font-bold uppercase text-sm text-gray-400 hover:text-white" href="polished-concrete.html">Polished Concrete</a>
-    <a href="garage-makeovers.html#quote-form" class="tectonic-gradient text-on-primary px-6 py-2.5 rounded-full font-bold text-xs uppercase text-center">Get a Quote</a>
+    <a href="contact.html" class="tectonic-gradient text-on-primary px-6 py-2.5 rounded-full font-bold text-xs uppercase text-center">Get a Quote</a>
   </div>
 </nav>
 
@@ -143,8 +143,8 @@
         <!-- Contact form -->
         <div class="bg-surface-container rounded-2xl p-8 md:p-10 border border-white/5">
           <h2 class="font-headline font-bold text-2xl mb-6">Send Us a Message</h2>
-          <form netlify name="contact" method="POST" action="/contact.html?success=true" class="space-y-5" aria-label="Contact form">
-            <input type="hidden" name="form-name" value="contact"/>
+          <form id="contact-form" action="FORMSPREE_URL" method="POST" class="space-y-5" aria-label="Contact form">
+            
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
                 <label for="contact-name" class="block text-xs font-bold text-white/50 uppercase tracking-widest mb-2">Full Name *</label>
@@ -178,6 +178,14 @@
             <button type="submit" class="w-full tectonic-gradient text-on-primary font-headline font-black uppercase tracking-widest py-4 rounded-xl hover:scale-[1.02] active:scale-100 transition-all shadow-lg">
               Send Message
             </button>
+            <div id="form-success" class="hidden text-center py-4">
+              <span class="material-symbols-outlined text-primary text-4xl block mb-3" aria-hidden="true">check_circle</span>
+              <p class="font-headline font-bold text-white text-lg mb-1">Message Sent!</p>
+              <p class="text-on-surface-variant text-sm">We'll get back to you within 24 hours.</p>
+            </div>
+            <div id="form-error" class="hidden text-center py-2">
+              <p class="text-red-400 text-sm">Something went wrong. Please call us at <a href="tel:+15402124082" class="underline">(540) 212-4082</a>.</p>
+            </div>
             <p class="text-center text-xs text-on-surface-variant">We'll respond within 24 hours. No spam, ever.</p>
           </form>
         </div>
@@ -222,7 +230,7 @@
       <div>
         <h3 class="font-headline font-bold text-xs uppercase tracking-widest text-white mb-4">Get Started</h3>
         <p class="text-xs text-gray-500 mb-4 leading-relaxed">Free on-site assessments throughout Southwest Virginia. Most quotes within 24 hours.</p>
-        <a href="garage-makeovers.html#quote-form" class="inline-block tectonic-gradient text-on-primary font-headline font-bold uppercase tracking-widest text-xs px-6 py-3 rounded-full hover:scale-105 transition-transform">Get a Free Quote</a>
+        <a href="contact.html" class="inline-block tectonic-gradient text-on-primary font-headline font-bold uppercase tracking-widest text-xs px-6 py-3 rounded-full hover:scale-105 transition-transform">Get a Free Quote</a>
       </div>
     </div>
     <div class="border-t border-white/5 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3">
@@ -251,6 +259,40 @@
         window.netlifyIdentity.on("login", () => {
           document.location.href = "/admin/";
         });
+      }
+    });
+  }
+</script>
+
+<script>
+  // Formspree AJAX submission — contact form
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('button[type="submit"]');
+      const success = document.getElementById('form-success');
+      const error = document.getElementById('form-error');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      try {
+        const res = await fetch(this.action, {
+          method: 'POST',
+          body: new FormData(this),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          this.style.display = 'none';
+          success.classList.remove('hidden');
+        } else {
+          btn.textContent = 'Send Message';
+          btn.disabled = false;
+          error.classList.remove('hidden');
+        }
+      } catch(err) {
+        btn.textContent = 'Send Message';
+        btn.disabled = false;
+        error.classList.remove('hidden');
       }
     });
   }
