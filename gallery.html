@@ -60,7 +60,7 @@
 
 <!-- Navigation -->
 <nav class="fixed top-0 w-full z-50 bg-[#0e0e0e]/70 backdrop-blur-xl border-b border-white/5 shadow-[0_0_40px_rgba(254,195,0,0.05)]">
-  <div class="flex justify-between items-center px-4 sm:px-8 py-4 max-w-7xl mx-auto">
+  <div class="flex justify-between items-center px-4 sm:px-8 max-w-7xl mx-auto h-16">
     <a href="index.html" class="flex items-center">
       <img alt="Prestige Concrete Coatings Logo" class="h-10 w-auto object-contain" src="assets/logo.png" style="mix-blend-mode:screen;"
         onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='block'"/>
@@ -289,6 +289,124 @@
     menu.classList.toggle("open");
   });
 </script>
+
+<!-- Lightbox -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Project image viewer" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.95); flex-direction:column; align-items:center; justify-content:center;">
+
+  <!-- Close -->
+  <button id="lb-close" aria-label="Close" style="position:absolute; top:16px; right:16px; background:rgba(255,255,255,0.1); border:none; color:#fff; width:44px; height:44px; border-radius:50%; font-size:20px; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:10;">✕</button>
+
+  <!-- Prev -->
+  <button id="lb-prev" aria-label="Previous image" style="position:absolute; left:12px; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.1); border:none; color:#fff; width:48px; height:48px; border-radius:50%; font-size:24px; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:10;">‹</button>
+
+  <!-- Next -->
+  <button id="lb-next" aria-label="Next image" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.1); border:none; color:#fff; width:48px; height:48px; border-radius:50%; font-size:24px; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:10;">›</button>
+
+  <!-- Image -->
+  <div style="max-width:90vw; max-height:75vh; display:flex; align-items:center; justify-content:center;">
+    <img id="lb-img" src="" alt="" style="max-width:90vw; max-height:75vh; object-fit:contain; border-radius:12px;"/>
+  </div>
+
+  <!-- Caption -->
+  <div style="margin-top:16px; text-align:center; padding:0 60px;">
+    <p id="lb-title" style="color:#fff; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.1rem; margin-bottom:4px;"></p>
+    <p id="lb-location" style="color:#FEC300; font-size:0.8rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:6px;"></p>
+    <p id="lb-desc" style="color:rgba(255,255,255,0.6); font-size:0.85rem; max-width:600px; line-height:1.6;"></p>
+  </div>
+
+  <!-- Counter -->
+  <p id="lb-counter" style="position:absolute; bottom:16px; left:50%; transform:translateX(-50%); color:rgba(255,255,255,0.4); font-size:0.75rem; letter-spacing:0.1em;"></p>
+</div>
+
+<script>
+  // Lightbox logic
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lb-img');
+  const lbTitle = document.getElementById('lb-title');
+  const lbLocation = document.getElementById('lb-location');
+  const lbDesc = document.getElementById('lb-desc');
+  const lbCounter = document.getElementById('lb-counter');
+  let currentIndex = 0;
+  let currentProjects = [];
+
+  function openLightbox(index) {
+    currentIndex = index;
+    const p = currentProjects[index];
+    lbImg.src = p.image || '';
+    lbImg.alt = p.title || '';
+    lbTitle.textContent = p.title || '';
+    lbLocation.textContent = p.location || '';
+    lbDesc.textContent = p.description || '';
+    lbCounter.textContent = (index + 1) + ' / ' + currentProjects.length;
+    lightbox.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    lbImg.focus();
+  }
+
+  function closeLightbox() {
+    lightbox.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + currentProjects.length) % currentProjects.length;
+    openLightbox(currentIndex);
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % currentProjects.length;
+    openLightbox(currentIndex);
+  }
+
+  document.getElementById('lb-close').addEventListener('click', closeLightbox);
+  document.getElementById('lb-prev').addEventListener('click', showPrev);
+  document.getElementById('lb-next').addEventListener('click', showNext);
+
+  // Click outside to close
+  lightbox.addEventListener('click', function(e) {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', function(e) {
+    if (lightbox.style.display === 'none') return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showPrev();
+    if (e.key === 'ArrowRight') showNext();
+  });
+
+  // Touch swipe support
+  let touchStartX = 0;
+  lightbox.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  lightbox.addEventListener('touchend', e => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) diff > 0 ? showNext() : showPrev();
+  });
+
+  // Hook into gallery render — add click handlers after cards are built
+  const _origRenderGrid = window.renderGrid;
+  function attachLightboxHandlers() {
+    currentProjects = allProjects || [];
+    document.querySelectorAll('.gallery-item').forEach((card, i) => {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', () => openLightbox(i));
+      card.setAttribute('role', 'button');
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('aria-label', 'View project details');
+      card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(i); }
+      });
+    });
+  }
+
+  // Override renderGrid to attach handlers after render
+  const origRenderGrid = renderGrid;
+  window.renderGrid = function() {
+    origRenderGrid();
+    setTimeout(attachLightboxHandlers, 100);
+  };
+</script>
+
 <!-- Netlify Identity Widget -->
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <script>
