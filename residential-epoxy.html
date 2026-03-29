@@ -66,14 +66,14 @@
   html { overflow-x: hidden; }
   body { -webkit-tap-highlight-color: transparent; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
   * { -webkit-tap-highlight-color: transparent; }
-  img { max-width: 100%; height: auto; }
+  img:not(#site-nav img):not(nav img) { max-width: 100%; height: auto; }
   /* ADA Accessibility */
   :focus-visible { outline: 3px solid #FEC300; outline-offset: 3px; border-radius: 3px; }
   :focus:not(:focus-visible) { outline: none; }
   .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border-width:0; }
-  /* ADA touch targets — scoped to exclude nav */
-  :not(nav) > a:not(.nav-link), button:not(#mobile-menu-btn) { min-height: 44px; }
-  button { min-width: 44px; }
+  /* ADA touch targets — excludes nav entirely */
+  main a, footer a { min-height: 44px; display: inline-flex; align-items: center; }
+  button:not(#mobile-menu-btn) { min-height: 44px; min-width: 44px; }
   @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
 </style>
 <script type="application/ld+json">
