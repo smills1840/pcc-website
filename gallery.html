@@ -211,43 +211,21 @@
       renderGrid();
     }
 
-    // Fetch all JSON files from _projects/ via GitHub API
+    // Load projects from /api/projects (Cloudflare Pages Function)
     async function loadProjects() {
-      const grid = document.getElementById('gallery-grid');
       try {
-        // Try to fetch the _projects directory listing from the live site
-        const res = await fetch('/_projects/', { method: 'HEAD' });
-        // Since we can't list directories on a static host, we use the GitHub API
-        const apiRes = await fetch('https://api.github.com/repos/smills1840/pcc-website/contents/_projects', {
-          headers: { 'Accept': 'application/vnd.github.v3+json' }
-        });
-
-        if (!apiRes.ok) throw new Error('API unavailable');
-
-        const files = await apiRes.json();
-        const jsonFiles = files.filter(f => f.name.endsWith('.json'));
-
-        if (jsonFiles.length === 0) {
-          // No CMS projects yet — show fallback
-          allProjects = FALLBACK_PROJECTS;
+        const res = await fetch('/api/projects');
+        if (res.ok) {
+          const projects = await res.json();
+          allProjects = projects.length > 0
+            ? [...projects, ...FALLBACK_PROJECTS]
+            : FALLBACK_PROJECTS;
         } else {
-          // Fetch each project JSON file
-          const fetches = jsonFiles.map(f => fetch(f.download_url).then(r => r.json()));
-          const projects = await Promise.all(fetches);
-          // Sort: featured first, then by date descending
-          projects.sort((a, b) => {
-            if (a.featured && !b.featured) return -1;
-            if (!a.featured && b.featured) return 1;
-            return (b.date || '').localeCompare(a.date || '');
-          });
-          // Combine CMS projects with fallback (CMS first)
-          allProjects = [...projects, ...FALLBACK_PROJECTS];
+          allProjects = FALLBACK_PROJECTS;
         }
       } catch(e) {
-        // If API fails, just show fallback projects
         allProjects = FALLBACK_PROJECTS;
       }
-
       renderGrid();
     }
 
