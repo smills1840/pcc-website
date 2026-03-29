@@ -152,221 +152,31 @@
 <body class="bg-background text-on-background font-body">
 
 <!-- Navigation -->
-<<<<<<< HEAD
-<style>
-  #site-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 9000;
-    background: rgba(14,14,14,0.85);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    box-shadow: 0 0 40px rgba(254,195,0,0.05);
-  }
-  #site-nav .nav-inner {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    height: 64px;
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 32px;
-  }
-  #site-nav .nav-logo img {
-    height: 36px;
-    width: auto;
-    display: block;
-    mix-blend-mode: screen;
-  }
-  #site-nav .nav-logo .nav-logo-fallback {
-    display: none;
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 900;
-    color: #FEC300;
-    font-size: 1.1rem;
-    letter-spacing: -0.02em;
-  }
-  #site-nav .nav-links {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 32px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  #site-nav .nav-links a {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #9ca3af;
-    text-decoration: none;
-    transition: color 0.2s;
-    line-height: 1;
-    display: block;
-  }
-  #site-nav .nav-links a:hover { color: #ffffff; }
-  #site-nav .nav-right {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 12px;
-  }
-  #site-nav .nav-phone {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    color: rgba(255,255,255,0.6);
-    font-family: 'Manrope', sans-serif;
-    font-weight: 700;
-    font-size: 0.85rem;
-    text-decoration: none;
-    transition: color 0.2s;
-    white-space: nowrap;
-  }
-  #site-nav .nav-phone:hover { color: #FEC300; }
-  #site-nav .nav-phone .material-symbols-outlined {
-    font-size: 16px;
-    color: #FEC300;
-  }
-  #site-nav .nav-cta {
-    background: linear-gradient(135deg, #FEC300 0%, #edb600 100%);
-    color: #000000;
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 9999px;
-    transition: transform 0.2s;
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
-  }
-  #site-nav .nav-cta:hover { transform: scale(1.05); }
-  #site-nav .nav-hamburger {
-    display: none;
-    background: none;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    padding: 4px;
-    align-items: center;
-    justify-content: center;
-  }
-  #site-nav .nav-hamburger .material-symbols-outlined { font-size: 24px; }
-  #mobile-nav {
-    display: none;
-    flex-direction: column;
-    gap: 20px;
-    background: #0e0e0e;
-    border-top: 1px solid rgba(255,255,255,0.06);
-    padding: 24px 32px;
-  }
-  #mobile-nav.open { display: flex; }
-  #mobile-nav a {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    font-size: 0.8rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #9ca3af;
-    text-decoration: none;
-  }
-  #mobile-nav .mobile-phone {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #fff;
-    font-size: 0.9rem;
-  }
-  #mobile-nav .mobile-phone .material-symbols-outlined {
-    font-size: 18px;
-    color: #FEC300;
-  }
-  #mobile-nav .mobile-cta {
-    background: linear-gradient(135deg, #FEC300 0%, #edb600 100%);
-    color: #000;
-    text-align: center;
-    padding: 12px 20px;
-    border-radius: 9999px;
-    display: block;
-  }
-  @media (max-width: 768px) {
-    #site-nav .nav-links { display: none; }
-    #site-nav .nav-phone { display: none; }
-    #site-nav .nav-hamburger { display: flex; }
-    #site-nav .nav-inner { padding: 0 16px; }
-  }
-</style>
-
-<nav id="site-nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo" aria-label="Prestige Concrete Coatings home">
-      <img src="assets/logo.png" alt="Prestige Concrete Coatings Logo"
-        onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
-      <span class="nav-logo-fallback">PRESTIGE</span>
-=======
 <nav class="fixed top-0 w-full z-50 bg-[#0e0e0e]/70 backdrop-blur-xl border-b border-white/5 shadow-[0_0_40px_rgba(254,195,0,0.05)]">
-  <div class="flex justify-between items-center px-4 sm:px-8 py-4 max-w-7xl mx-auto">
+  <div class="flex justify-between items-center px-4 sm:px-8 max-w-7xl mx-auto" style="height:64px;">
     <a href="index.html" class="flex items-center">
       <img alt="Prestige Concrete Coatings Logo" class="h-10 w-auto object-contain" src="assets/logo.png" style="mix-blend-mode:screen;"
         onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='block'"/>
       <span style="display:none" class="font-headline font-black text-primary text-xl tracking-tight">PRESTIGE</span>
->>>>>>> parent of 60f4bf7 (Update)
     </a>
-    <ul class="nav-links" role="list">
-      <li><a href="residential-epoxy.html">Residential Epoxy</a></li>
-      <li><a href="commercial-coatings.html">Commercial Coatings</a></li>
-      <li><a href="polished-concrete.html">Polished Concrete</a></li>
-    </ul>
-    <div class="nav-right">
-      <a href="tel:+15402124082" class="nav-phone" aria-label="Call us">
-        <span class="material-symbols-outlined" aria-hidden="true">phone</span>
-        (540) 212-4082
-      </a>
-      <a href="contact.html" class="nav-cta">Get a Quote</a>
-      <button id="nav-hamburger-btn" class="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
-        <span class="material-symbols-outlined" aria-hidden="true">menu</span>
-      </button>
+    <div class="hidden md:flex items-center gap-8 font-headline font-bold tracking-tight text-sm uppercase">
+      <a class="text-gray-400 hover:text-white transition-colors" href="residential-epoxy.html">Residential</a>
+      <a class="text-gray-400 hover:text-white transition-colors" href="commercial-coatings.html">Commercial</a>
+      <a class="text-primary border-b-2 border-primary pb-1" href="garage-makeovers.html">Garage Makeovers</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="tel:+15402124082" class="hidden lg:flex items-center gap-2 text-white/70 hover:text-primary transition-colors text-sm font-bold" aria-label="Call us"><span class="material-symbols-outlined text-primary" style="font-size:18px;" aria-hidden="true">phone</span>(540) 212-4082</a>
+      <a href="#quote-form" class="bg-primary-container text-on-primary-container px-6 py-2 rounded-lg font-bold btn-pulse hover:scale-105 transition-all duration-300">Get a Quote</a>
+      <button id="mobile-menu-btn" class="md:hidden text-white p-1" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu"><span class="material-symbols-outlined" aria-hidden="true">menu</span></button>
     </div>
   </div>
-  <div id="mobile-nav" aria-hidden="true">
-    <a href="tel:+15402124082" class="mobile-phone">
-      <span class="material-symbols-outlined" aria-hidden="true">phone</span>
-      (540) 212-4082 — Call or Text
-    </a>
-    <a href="residential-epoxy.html">Residential Epoxy</a>
-    <a href="commercial-coatings.html">Commercial Coatings</a>
-    <a href="polished-concrete.html">Polished Concrete</a>
-    <a href="contact.html" class="mobile-cta">Get a Quote</a>
+  <div id="mobile-menu" class="md:hidden bg-[#0e0e0e] border-t border-white/10 px-8 py-6 flex-col gap-6">
+    <a href="tel:+15402124082" class="flex items-center gap-2 text-white font-bold text-sm" aria-label="Call Prestige Concrete Coatings"><span class="material-symbols-outlined text-primary text-lg" aria-hidden="true">phone</span>(540) 212-4082 — Call or Text</a>
+    <a class="font-headline font-bold uppercase text-sm text-gray-400 hover:text-white" href="residential-epoxy.html">Residential</a>
+    <a class="font-headline font-bold uppercase text-sm text-gray-400 hover:text-white" href="commercial-coatings.html">Commercial</a>
+    <a class="font-headline font-bold uppercase text-sm text-primary" href="garage-makeovers.html">Garage Makeovers</a>
   </div>
 </nav>
-<<<<<<< HEAD
-<script>
-  (function() {
-    var btn = document.getElementById('nav-hamburger-btn');
-    var menu = document.getElementById('mobile-nav');
-    if (btn && menu) {
-      btn.addEventListener('click', function() {
-        var open = menu.classList.toggle('open');
-        btn.setAttribute('aria-expanded', open);
-        menu.setAttribute('aria-hidden', !open);
-      });
-    }
-  })();
-</script>
-=======
 
 <main id="main-content" class="pt-20">
 
@@ -669,7 +479,7 @@
           </div>
         </div>
         <div class="lg:w-1/2 bg-surface-container-high/50 p-5 sm:p-8 lg:p-20 border-l border-white/5">
-          <form id="garage-form" action="https://formspree.io/f/xvzvkggr" method="POST">
+          <form id="garage-form" action="FORMSPREE_URL" method="POST">
             <div class="space-y-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div><label class="block text-xs font-bold text-white/40 uppercase mb-2 ml-1">Full Name</label><input class="w-full bg-surface-variant border-none rounded-xl text-white placeholder-white/20 focus:ring-2 focus:ring-primary transition-all px-4 py-3" placeholder="John Doe" type="text"/></div>
@@ -745,7 +555,6 @@
 </footer>
 
 <script src="animations.js"></script>
->>>>>>> parent of 60f4bf7 (Update)
 <script>
   // Mobile menu
   document.getElementById('mobile-menu-btn').addEventListener('click', () => {

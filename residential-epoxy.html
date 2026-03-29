@@ -94,208 +94,30 @@
 <body class="bg-background text-on-background font-body selection:bg-primary selection:text-on-primary">
 
 <!-- Navigation -->
-<<<<<<< HEAD
-<style>
-  #site-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 9000;
-    background: rgba(14,14,14,0.85);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    box-shadow: 0 0 40px rgba(254,195,0,0.05);
-  }
-  #site-nav .nav-inner {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    height: 64px;
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 32px;
-  }
-  #site-nav .nav-logo img {
-    height: 36px;
-    width: auto;
-    display: block;
-    mix-blend-mode: screen;
-  }
-  #site-nav .nav-logo .nav-logo-fallback {
-    display: none;
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 900;
-    color: #FEC300;
-    font-size: 1.1rem;
-    letter-spacing: -0.02em;
-  }
-  #site-nav .nav-links {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 32px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  #site-nav .nav-links a {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #9ca3af;
-    text-decoration: none;
-    transition: color 0.2s;
-    line-height: 1;
-    display: block;
-  }
-  #site-nav .nav-links a:hover { color: #ffffff; }
-  #site-nav .nav-right {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 12px;
-  }
-  #site-nav .nav-phone {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    color: rgba(255,255,255,0.6);
-    font-family: 'Manrope', sans-serif;
-    font-weight: 700;
-    font-size: 0.85rem;
-    text-decoration: none;
-    transition: color 0.2s;
-    white-space: nowrap;
-  }
-  #site-nav .nav-phone:hover { color: #FEC300; }
-  #site-nav .nav-phone .material-symbols-outlined {
-    font-size: 16px;
-    color: #FEC300;
-  }
-  #site-nav .nav-cta {
-    background: linear-gradient(135deg, #FEC300 0%, #edb600 100%);
-    color: #000000;
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 9999px;
-    transition: transform 0.2s;
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
-  }
-  #site-nav .nav-cta:hover { transform: scale(1.05); }
-  #site-nav .nav-hamburger {
-    display: none;
-    background: none;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    padding: 4px;
-    align-items: center;
-    justify-content: center;
-  }
-  #site-nav .nav-hamburger .material-symbols-outlined { font-size: 24px; }
-  #mobile-nav {
-    display: none;
-    flex-direction: column;
-    gap: 20px;
-    background: #0e0e0e;
-    border-top: 1px solid rgba(255,255,255,0.06);
-    padding: 24px 32px;
-  }
-  #mobile-nav.open { display: flex; }
-  #mobile-nav a {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    font-size: 0.8rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #9ca3af;
-    text-decoration: none;
-  }
-  #mobile-nav .mobile-phone {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #fff;
-    font-size: 0.9rem;
-  }
-  #mobile-nav .mobile-phone .material-symbols-outlined {
-    font-size: 18px;
-    color: #FEC300;
-  }
-  #mobile-nav .mobile-cta {
-    background: linear-gradient(135deg, #FEC300 0%, #edb600 100%);
-    color: #000;
-    text-align: center;
-    padding: 12px 20px;
-    border-radius: 9999px;
-    display: block;
-  }
-  @media (max-width: 768px) {
-    #site-nav .nav-links { display: none; }
-    #site-nav .nav-phone { display: none; }
-    #site-nav .nav-hamburger { display: flex; }
-    #site-nav .nav-inner { padding: 0 16px; }
-  }
-</style>
-
-<nav id="site-nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo" aria-label="Prestige Concrete Coatings home">
-      <img src="assets/logo.png" alt="Prestige Concrete Coatings Logo"
-        onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
-      <span class="nav-logo-fallback">PRESTIGE</span>
-=======
 <nav class="fixed top-0 w-full z-50 bg-[#0e0e0e]/70 backdrop-blur-xl border-b border-white/5 shadow-[0_0_40px_rgba(254,195,0,0.05)]">
-  <div class="flex justify-between items-center px-4 sm:px-8 py-4 max-w-7xl mx-auto">
+  <div class="flex justify-between items-center px-4 sm:px-8 max-w-7xl mx-auto" style="height:64px;">
     <a href="index.html" class="flex items-center">
       <img alt="Prestige Concrete Coatings Logo" class="h-10 w-auto object-contain" src="assets/logo.png" style="mix-blend-mode:screen;"
         onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='block'"/>
       <span style="display:none" class="font-headline font-black text-primary text-xl tracking-tight">PRESTIGE</span>
->>>>>>> parent of 60f4bf7 (Update)
     </a>
-    <ul class="nav-links" role="list">
-      <li><a href="residential-epoxy.html">Residential Epoxy</a></li>
-      <li><a href="commercial-coatings.html">Commercial Coatings</a></li>
-      <li><a href="polished-concrete.html">Polished Concrete</a></li>
-    </ul>
-    <div class="nav-right">
-      <a href="tel:+15402124082" class="nav-phone" aria-label="Call us">
-        <span class="material-symbols-outlined" aria-hidden="true">phone</span>
-        (540) 212-4082
-      </a>
-      <a href="contact.html" class="nav-cta">Get a Quote</a>
-      <button id="nav-hamburger-btn" class="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
-        <span class="material-symbols-outlined" aria-hidden="true">menu</span>
-      </button>
+    <div class="hidden md:flex gap-8 items-center font-headline tracking-tight font-bold uppercase text-sm">
+      <a class="text-primary border-b-2 border-primary pb-1" href="residential-epoxy.html">Residential Epoxy</a>
+      <a class="text-gray-400 hover:text-white transition-colors" href="commercial-coatings.html">Commercial Coatings</a>
+      <a class="text-gray-400 hover:text-white transition-colors" href="polished-concrete.html">Polished Concrete</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="contact.html" class="tectonic-glow text-on-primary px-6 py-2 rounded-full font-bold text-sm uppercase tracking-wider hover:scale-105 active:scale-95 transition-all duration-300">Get a Quote</a>
+      <button id="mobile-menu-btn" class="md:hidden text-white p-1" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu"><span class="material-symbols-outlined" aria-hidden="true">menu</span></button>
     </div>
   </div>
-  <div id="mobile-nav" aria-hidden="true">
-    <a href="tel:+15402124082" class="mobile-phone">
-      <span class="material-symbols-outlined" aria-hidden="true">phone</span>
-      (540) 212-4082 — Call or Text
-    </a>
-    <a href="residential-epoxy.html">Residential Epoxy</a>
-    <a href="commercial-coatings.html">Commercial Coatings</a>
-    <a href="polished-concrete.html">Polished Concrete</a>
-    <a href="contact.html" class="mobile-cta">Get a Quote</a>
+  <div id="mobile-menu" class="md:hidden bg-[#0e0e0e] border-t border-white/5 px-8 py-6 flex-col gap-6">
+    <a href="tel:+15402124082" class="flex items-center gap-2 text-white font-bold text-sm" aria-label="Call Prestige Concrete Coatings"><span class="material-symbols-outlined text-primary text-lg" aria-hidden="true">phone</span>(540) 212-4082 — Call or Text</a>
+    <a class="font-headline font-bold uppercase text-sm text-primary" href="residential-epoxy.html">Residential Epoxy</a>
+    <a class="font-headline font-bold uppercase text-sm text-gray-400 hover:text-white" href="commercial-coatings.html">Commercial Coatings</a>
+    <a class="font-headline font-bold uppercase text-sm text-gray-400 hover:text-white" href="polished-concrete.html">Polished Concrete</a>
   </div>
 </nav>
-<<<<<<< HEAD
-=======
 
 <!-- Hero Section -->
 <section style="position:relative; min-height:100vh; display:flex; align-items:center; padding-top:5rem; overflow:hidden;">
@@ -316,10 +138,10 @@
         Transforming residential concrete into high-performance surfaces across Southwest Virginia. Professional garage, basement, and patio epoxy systems serving Blacksburg, Roanoke, and beyond.
       </p>
       <div class="flex flex-wrap gap-4">
-        <a href="garage-makeovers.html" class="tectonic-glow text-on-primary px-10 py-4 rounded-full font-extrabold text-lg flex items-center gap-3 hover:scale-105 transition-transform">
+        <a href="contact.html" class="tectonic-glow text-on-primary px-10 py-4 rounded-full font-extrabold text-lg flex items-center gap-3 hover:scale-105 transition-transform">
           Schedule Consultation <span class="material-symbols-outlined">arrow_forward</span>
         </a>
-        <button class="bg-surface-variant/20 ghost-border px-10 py-4 rounded-full font-bold text-lg text-white hover:bg-surface-variant/40 transition-all">View Gallery</button>
+        <a href="gallery.html" class="bg-surface-variant/20 ghost-border px-10 py-4 rounded-full font-bold text-lg text-white hover:bg-surface-variant/40 transition-all inline-block">View Gallery</a>
       </div>
     </div>
   </div>
@@ -369,7 +191,7 @@
     </div>
     <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
       <!-- Garage Makeovers -->
-      <a href="garage-makeovers.html" class="md:col-span-8 rounded-lg overflow-hidden group relative h-[320px] md:h-auto md:min-h-[500px] block" style="background-image:url('assets/garage-floor.jpg'); background-size:cover; background-position:center;">
+      <a href="contact.html" class="md:col-span-8 rounded-lg overflow-hidden group relative h-[320px] md:h-auto md:min-h-[500px] block" style="background-image:url('assets/garage-floor.jpg'); background-size:cover; background-position:center;">
         
         <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-black/20 to-black/70"></div>
         <div class="absolute bottom-0 p-8 w-full text-center md:text-left">
@@ -508,7 +330,7 @@
         <p class="text-on-surface-variant text-xl mb-12">Get a detailed, itemized quote for your space within 24 hours.</p>
         <div class="flex flex-col sm:flex-row gap-4">
           <input class="flex-1 bg-surface-container-highest border-none rounded-full px-8 py-5 text-white focus:ring-2 focus:ring-primary transition-all" placeholder="Enter Email Address" type="email"/>
-          <a href="garage-makeovers.html" class="tectonic-glow text-on-primary px-10 py-5 rounded-full font-extrabold text-lg whitespace-nowrap hover:scale-105 active:scale-95 transition-all text-center">Get Quote Fast</a>
+          <a href="contact.html" class="tectonic-glow text-on-primary px-10 py-5 rounded-full font-extrabold text-lg whitespace-nowrap hover:scale-105 active:scale-95 transition-all text-center">Get Quote Fast</a>
         </div>
         <p class="text-xs text-on-surface-variant/60 mt-6 font-bold uppercase tracking-widest">Free measurements &amp; material samples included.</p>
       </div>
@@ -579,19 +401,14 @@
   </div>
 </footer>
 
->>>>>>> parent of 60f4bf7 (Update)
 <script>
-  (function() {
-    var btn = document.getElementById('nav-hamburger-btn');
-    var menu = document.getElementById('mobile-nav');
-    if (btn && menu) {
-      btn.addEventListener('click', function() {
-        var open = menu.classList.toggle('open');
-        btn.setAttribute('aria-expanded', open);
-        menu.setAttribute('aria-hidden', !open);
-      });
-    }
-  })();
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', !expanded);
+    menu.classList.toggle('open');
+  });
 </script>
 <script src="animations.js"></script>
 <!-- Netlify Identity Widget -->
