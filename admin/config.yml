@@ -1,18 +1,20 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: YOUR_GITHUB_USERNAME/prestige-concrete-coatings
   branch: main
+  base_url: https://sveltia-cms-auth.YOUR_CLOUDFLARE_WORKER.workers.dev
 
 media_folder: "assets"
 public_folder: "assets"
 
-site_url: https://prestigeconcretecoatings.com
-display_url: https://prestigeconcretecoatings.com
+site_url: https://pcc-website.pages.dev
+display_url: https://pcc-website.pages.dev
 
 collections:
 
   # ── PROJECT GALLERY ────────────────────────────────────────────
   - name: "gallery"
-    label: "Project Gallery"
+    label: "📸 Project Gallery"
     label_singular: "Project"
     folder: "_projects"
     create: true
@@ -49,7 +51,7 @@ collections:
       - label: "Description"
         name: "description"
         widget: "text"
-        hint: "2-3 sentences describing the project — what system was used, any challenges, result"
+        hint: "2-3 sentences about the project — system used, challenges, result"
 
       - label: "Featured"
         name: "featured"
@@ -66,7 +68,7 @@ collections:
 
   # ── BLOG POSTS ─────────────────────────────────────────────────
   - name: "blog"
-    label: "Blog Posts"
+    label: "✍️ Blog Posts"
     label_singular: "Blog Post"
     folder: "_posts"
     create: true
@@ -78,7 +80,6 @@ collections:
       - label: "Title"
         name: "title"
         widget: "string"
-        hint: "e.g. Why Polyaspartic is Better Than Epoxy"
 
       - label: "Publish Date"
         name: "date"
@@ -90,28 +91,100 @@ collections:
         name: "image"
         widget: "image"
         required: false
-        hint: "Optional header image for the post"
 
       - label: "Summary"
         name: "summary"
         widget: "string"
-        hint: "One sentence shown in blog listings and Google search results"
+        hint: "One sentence shown in listings and Google search results"
 
       - label: "Content"
         name: "body"
         widget: "markdown"
-        hint: "Write your full blog post here. Use the toolbar to add headings, bold text, and links."
 
       - label: "Published"
         name: "published"
         widget: "boolean"
         default: true
-        hint: "Uncheck to save as a draft without publishing"
+        hint: "Uncheck to save as draft"
 
-  # ── SITE SETTINGS ──────────────────────────────────────────────
-  - name: "settings"
-    label: "Site Settings"
+  # ── PAGE CONTENT ───────────────────────────────────────────────
+  - name: "pages"
+    label: "📄 Page Content"
     files:
+
+      - label: "Homepage"
+        name: "home"
+        file: "_data/home.json"
+        extension: "json"
+        format: "json"
+        fields:
+          - label: "Hero Badge Text"
+            name: "hero_badge"
+            widget: "string"
+            default: "Defining Material Excellence"
+          - label: "Hero Headline"
+            name: "hero_headline"
+            widget: "string"
+            default: "POURED TO PERFECTION."
+          - label: "Hero Subtitle"
+            name: "hero_subtitle"
+            widget: "text"
+            default: "Premium industrial-grade surfacing serving Southwest Virginia."
+          - label: "Philosophy Heading"
+            name: "philosophy_heading"
+            widget: "string"
+            default: "NOT JUST A FLOOR. A FOUNDATION."
+          - label: "Philosophy Body"
+            name: "philosophy_body"
+            widget: "text"
+          - label: "Stat 1 Number"
+            name: "stat1_number"
+            widget: "string"
+            default: "15+"
+          - label: "Stat 1 Label"
+            name: "stat1_label"
+            widget: "string"
+            default: "Years Exp"
+          - label: "Stat 2 Number"
+            name: "stat2_number"
+            widget: "string"
+            default: "2M+"
+          - label: "Stat 2 Label"
+            name: "stat2_label"
+            widget: "string"
+            default: "Sq Ft Poured"
+          - label: "Stat 3 Number"
+            name: "stat3_number"
+            widget: "string"
+            default: "100%"
+          - label: "Stat 3 Label"
+            name: "stat3_label"
+            widget: "string"
+            default: "Industrial Grade"
+
+      - label: "Garage Makeovers Page"
+        name: "garage"
+        file: "_data/garage.json"
+        extension: "json"
+        format: "json"
+        fields:
+          - label: "Hero Headline"
+            name: "hero_headline"
+            widget: "string"
+            default: "The Ultimate Garage Transformation"
+          - label: "Hero Subtitle"
+            name: "hero_subtitle"
+            widget: "text"
+          - label: "Price Per Sq Ft ($)"
+            name: "price_per_sqft"
+            widget: "number"
+            default: 7
+            hint: "This updates the instant estimator automatically"
+          - label: "Phone Number"
+            name: "phone"
+            widget: "string"
+            default: "(540) 212-4082"
+
       - label: "Business Info"
         name: "business"
         file: "_data/business.json"
@@ -121,29 +194,74 @@ collections:
           - label: "Business Name"
             name: "name"
             widget: "string"
-
+            default: "Prestige Concrete Coatings"
           - label: "Phone Number"
             name: "phone"
             widget: "string"
-            hint: "e.g. (540) 212-4082"
-
+            default: "(540) 212-4082"
+          - label: "Email"
+            name: "email"
+            widget: "string"
+            default: "info@prestigeconcretecoatings.com"
           - label: "Tagline"
             name: "tagline"
             widget: "string"
-            hint: "Short tagline shown in footer"
-
           - label: "Service Radius (miles)"
             name: "radius"
             widget: "number"
             default: 75
-
-          - label: "Primary Cities Served"
-            name: "cities"
-            widget: "list"
-            hint: "List your main service cities"
-
           - label: "Google Reviews Link"
             name: "google_reviews"
             widget: "string"
             required: false
-            hint: "Paste your Google Business review link here"
+            hint: "Paste your Google Business review link here when you have one"
+          - label: "Facebook Link"
+            name: "facebook"
+            widget: "string"
+            required: false
+          - label: "Instagram Link"
+            name: "instagram"
+            widget: "string"
+            required: false
+
+  # ── TESTIMONIALS ───────────────────────────────────────────────
+  - name: "testimonials"
+    label: "⭐ Testimonials"
+    label_singular: "Testimonial"
+    folder: "_testimonials"
+    create: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    summary: "{{name}} — {{location}}"
+    fields:
+      - label: "Customer Name"
+        name: "name"
+        widget: "string"
+        hint: "e.g. David M. (use first name + last initial for privacy)"
+      - label: "Location"
+        name: "location"
+        widget: "string"
+        hint: "e.g. Blacksburg, VA"
+      - label: "Review"
+        name: "review"
+        widget: "text"
+        hint: "The customer's actual review text"
+      - label: "Star Rating"
+        name: "rating"
+        widget: "select"
+        options: ["5", "4", "3"]
+        default: "5"
+      - label: "Service Type"
+        name: "service"
+        widget: "select"
+        options:
+          - { label: "Garage Floor", value: "garage" }
+          - { label: "Commercial", value: "commercial" }
+          - { label: "Residential", value: "residential" }
+          - { label: "Patio / Pool Deck", value: "patio" }
+      - label: "Featured"
+        name: "featured"
+        widget: "boolean"
+        default: true
+        hint: "Featured reviews appear on the Residential page"
