@@ -1,8 +1,8 @@
 backend:
   name: github
-  repo: YOUR_GITHUB_USERNAME/prestige-concrete-coatings
+  repo: smills1840/prestige-concrete-coatings
   branch: main
-  base_url: https://sveltia-cms-auth.YOUR_CLOUDFLARE_WORKER.workers.dev
+  base_url: https://sveltia-cms-auth.smills1840.workers.dev
 
 media_folder: "assets"
 public_folder: "assets"
