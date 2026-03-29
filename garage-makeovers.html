@@ -153,13 +153,13 @@
 
 <!-- Navigation -->
 <nav class="fixed top-0 w-full z-50 bg-[#0e0e0e]/70 backdrop-blur-xl border-b border-white/5 shadow-[0_0_40px_rgba(254,195,0,0.05)]">
-  <div class="flex justify-between items-center px-4 sm:px-8 max-w-7xl mx-auto" style="height:64px;">
+  <div class="flex justify-between items-center px-4 sm:px-8 max-w-7xl mx-auto" style="height:64px; max-height:64px; overflow:visible; align-items:center;">
     <a href="index.html" class="flex items-center">
-      <img alt="Prestige Concrete Coatings Logo" class="h-10 w-auto object-contain" src="assets/logo.png" style="mix-blend-mode:screen;"
+      <img alt="Prestige Concrete Coatings Logo" class="w-auto object-contain" src="assets/logo.png" style="mix-blend-mode:screen; height:36px; max-height:36px; display:block;"
         onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='block'"/>
       <span style="display:none" class="font-headline font-black text-primary text-xl tracking-tight">PRESTIGE</span>
     </a>
-    <div class="hidden md:flex gap-8 items-center font-headline tracking-tight font-bold uppercase text-sm">
+    <div class="hidden md:flex gap-8 font-headline tracking-tight font-bold uppercase text-sm" style="align-items:center; align-self:center;">
       <a class="text-gray-400 hover:text-white transition-colors" href="residential-epoxy.html">Residential Epoxy</a>
       <a class="text-gray-400 hover:text-white transition-colors" href="commercial-coatings.html">Commercial Coatings</a>
       <a class="text-gray-400 hover:text-white transition-colors" href="polished-concrete.html">Polished Concrete</a>
