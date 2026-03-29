@@ -93,28 +93,30 @@
 <body class="selection:bg-primary selection:text-on-primary">
 
 <!-- Navigation -->
-<nav class="fixed top-0 w-full z-50 bg-[#0e0e0e]/60 backdrop-blur-xl shadow-[0_0_40px_rgba(254,195,0,0.05)] border-b border-white/5">
+<nav class="fixed top-0 w-full z-50 bg-[#0e0e0e]/70 backdrop-blur-xl border-b border-white/5 shadow-[0_0_40px_rgba(254,195,0,0.05)]">
   <div class="flex justify-between items-center px-4 sm:px-8 max-w-7xl mx-auto" style="height:64px;">
-    <a href="index.html">
-      <img alt="Prestige Concrete Coatings" class="h-10 w-auto object-contain" src="assets/logo.png"
+    <a href="index.html" class="flex items-center">
+      <img alt="Prestige Concrete Coatings Logo" class="h-10 w-auto object-contain" src="assets/logo.png" style="mix-blend-mode:screen;"
         onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='block'"/>
       <span style="display:none" class="font-headline font-black text-primary text-xl tracking-tight">PRESTIGE</span>
     </a>
-    <div class="hidden md:flex gap-8 items-center">
-      <a class="font-headline tracking-tight font-bold uppercase text-sm text-gray-400 hover:text-white transition-colors" href="residential-epoxy.html">Residential Epoxy</a>
-      <a class="font-headline tracking-tight font-bold uppercase text-sm text-primary border-b-2 border-primary pb-1" href="commercial-coatings.html">Commercial Coatings</a>
-      <a class="font-headline tracking-tight font-bold uppercase text-sm text-gray-400 hover:text-white transition-colors" href="polished-concrete.html">Polished Concrete</a>
+    <div class="hidden md:flex gap-8 items-center font-headline tracking-tight font-bold uppercase text-sm">
+      <a class="text-gray-400 hover:text-white transition-colors" href="residential-epoxy.html">Residential Epoxy</a>
+      <a class="text-gray-400 hover:text-white transition-colors" href="commercial-coatings.html">Commercial Coatings</a>
+      <a class="text-gray-400 hover:text-white transition-colors" href="polished-concrete.html">Polished Concrete</a>
     </div>
     <div class="flex items-center gap-3">
-      <a href="contact.html" class="tectonic-gradient text-on-primary px-6 py-2 rounded-full font-bold text-sm hover:scale-105 transition-transform duration-300 active:scale-95">Get a Quote</a>
+      <a href="tel:+15402124082" class="hidden lg:flex items-center gap-2 text-white/70 hover:text-primary transition-colors text-sm font-bold" aria-label="Call us"><span class="material-symbols-outlined text-primary" style="font-size:18px;" aria-hidden="true">phone</span>(540) 212-4082</a>
+      <a href="contact.html" class="tectonic-gradient text-on-primary px-6 py-2 rounded-full font-bold text-sm uppercase tracking-wider hover:scale-105 transition-all">Get a Quote</a>
       <button id="mobile-menu-btn" class="md:hidden text-white p-1" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu"><span class="material-symbols-outlined" aria-hidden="true">menu</span></button>
     </div>
   </div>
   <div id="mobile-menu" class="md:hidden bg-[#0e0e0e] border-t border-white/5 px-8 py-6 flex-col gap-6">
-    <a href="tel:+15402124082" class="flex items-center gap-2 text-white font-bold text-sm" aria-label="Call Prestige Concrete Coatings"><span class="material-symbols-outlined text-primary text-lg" aria-hidden="true">phone</span>(540) 212-4082 — Call or Text</a>
+    <a href="tel:+15402124082" class="flex items-center gap-2 text-white font-bold text-sm" aria-label="Call us"><span class="material-symbols-outlined text-primary text-lg" aria-hidden="true">phone</span>(540) 212-4082 — Call or Text</a>
     <a class="font-headline font-bold uppercase text-sm text-gray-400 hover:text-white" href="residential-epoxy.html">Residential Epoxy</a>
-    <a class="font-headline font-bold uppercase text-sm text-primary" href="commercial-coatings.html">Commercial Coatings</a>
+    <a class="font-headline font-bold uppercase text-sm text-gray-400 hover:text-white" href="commercial-coatings.html">Commercial Coatings</a>
     <a class="font-headline font-bold uppercase text-sm text-gray-400 hover:text-white" href="polished-concrete.html">Polished Concrete</a>
+    <a href="contact.html" class="tectonic-gradient text-on-primary px-6 py-2.5 rounded-full font-bold text-xs uppercase text-center">Get a Quote</a>
   </div>
 </nav>
 
