@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: smills1840/prestige-concrete-coatings
+  repo: repo: smills1840/pcc-website
   branch: main
   base_url: https://sveltia-cms-auth.smills1840.workers.dev
 
