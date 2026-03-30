@@ -190,8 +190,10 @@
         </article>`;
     }
 
-    let allProjects = [];
-    let activeFilter = 'all';
+    window.allProjects = [];
+    window.activeFilter = 'all';
+    let allProjects = window.allProjects;
+    let activeFilter = window.activeFilter;
 
     function renderGrid() {
       const grid = document.getElementById('gallery-grid');
@@ -211,7 +213,7 @@
     }
 
     function filterGallery(cat) {
-      activeFilter = cat;
+      activeFilter = window.activeFilter = cat;
       document.querySelectorAll('.filter-btn').forEach(b => {
         b.classList.remove('active-filter');
         b.classList.add('border-white/20', 'text-white/70');
@@ -233,14 +235,14 @@
         if (res.ok) {
           const raw = await res.json();
           const projects = raw.map(normalise);
-          allProjects = projects.length > 0
+          window.allProjects = allProjects = projects.length > 0
             ? [...projects, ...FALLBACK_PROJECTS]
             : FALLBACK_PROJECTS;
         } else {
-          allProjects = FALLBACK_PROJECTS;
+          window.allProjects = allProjects = FALLBACK_PROJECTS;
         }
       } catch(e) {
-        allProjects = FALLBACK_PROJECTS;
+        window.allProjects = allProjects = FALLBACK_PROJECTS;
       }
       renderGrid();
     }
