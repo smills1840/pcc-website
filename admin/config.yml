@@ -43,10 +43,16 @@ collections:
           - { label: "Polished Concrete", value: "polished" }
           - { label: "Patio / Pool Deck", value: "patio" }
 
-      - label: "Project Photo"
-        name: "image"
-        widget: "image"
-        hint: "Upload a photo of the finished project"
+      - label: "Project Photos"
+        name: "images"
+        widget: "list"
+        min: 1
+        max: 10
+        hint: "Upload one or more photos. The first photo is used as the thumbnail."
+        field:
+          label: "Photo"
+          name: "photo"
+          widget: "image"
 
       - label: "Description"
         name: "description"

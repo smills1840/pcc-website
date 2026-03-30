@@ -143,26 +143,41 @@
       patio:       'Patio & Pool Deck',
     };
 
-    // Hardcoded fallback projects (shown if no CMS projects exist yet)
+    // Hardcoded fallback projects
     const FALLBACK_PROJECTS = [
-      { title: 'Full-Flake Garage Makeover',            location: 'Blacksburg, VA',      category: 'garage',      image: 'assets/garage-hero.jpg',        description: '2-car garage with our signature full-broadcast flake system. Diamond-ground, base coated, and sealed with a polyaspartic topcoat for a showroom finish.' },
-      { title: '3-Car Garage — Tan Flake',              location: 'Christiansburg, VA',  category: 'garage',      image: 'assets/garage-floor.jpg',       description: 'Custom tan and brown flake blend for a warm, natural look. UV-stable topcoat installed in one day with zero downtime.' },
-      { title: 'Pool Deck Coating',                     location: 'Radford, VA',         category: 'residential', image: 'assets/patio-coating.jpg',      description: 'UV-stable full-flake system on an in-ground pool deck. Slip-resistant texture, weatherproof, and built to handle freeze-thaw cycles year-round.' },
-      { title: 'Industrial Facility — High-Gloss Epoxy',location: 'Roanoke, VA',         category: 'commercial',  image: 'assets/commercial-hangar.jpg',  description: 'Large commercial facility coating with our industrial-grade epoxy system. Chemical-resistant, forklift-rated, and installed over a weekend to minimize downtime.' },
-      { title: 'Retail Showroom — High-Gloss Polish',   location: 'Blacksburg, VA',      category: 'polished',    image: 'assets/polished-retail.jpg',    description: 'Multi-stage diamond polishing to a mirror-like 3000-grit finish. Zero VOCs, lifetime durability, and zero ongoing maintenance costs.' },
-      { title: 'Basement Gym — Moisture-Barrier System',location: 'Christiansburg, VA',  category: 'residential', image: 'assets/basement-floor.jpg',     description: 'Damp basement transformed into a home gym with our moisture-blocking epoxy system. Diamond-ground so it will never peel.' },
+      { title: 'Full-Flake Garage Makeover',             location: 'Blacksburg, VA',     category: 'garage',      images: ['assets/garage-hero.jpg'],       description: '2-car garage with our signature full-broadcast flake system. Diamond-ground, base coated, and sealed with a polyaspartic topcoat for a showroom finish.' },
+      { title: '3-Car Garage — Tan Flake',               location: 'Christiansburg, VA', category: 'garage',      images: ['assets/garage-floor.jpg'],      description: 'Custom tan and brown flake blend for a warm, natural look. UV-stable topcoat installed in one day with zero downtime.' },
+      { title: 'Pool Deck Coating',                      location: 'Radford, VA',        category: 'residential', images: ['assets/patio-coating.jpg'],     description: 'UV-stable full-flake system on an in-ground pool deck. Slip-resistant texture, weatherproof, and built to handle freeze-thaw cycles year-round.' },
+      { title: 'Industrial Facility — High-Gloss Epoxy', location: 'Roanoke, VA',        category: 'commercial',  images: ['assets/commercial-hangar.jpg'], description: 'Large commercial facility coating with our industrial-grade epoxy system. Chemical-resistant, forklift-rated, and installed over a weekend to minimize downtime.' },
+      { title: 'Retail Showroom — High-Gloss Polish',    location: 'Blacksburg, VA',     category: 'polished',    images: ['assets/polished-retail.jpg'],   description: 'Multi-stage diamond polishing to a mirror-like 3000-grit finish. Zero VOCs, lifetime durability, and zero ongoing maintenance costs.' },
+      { title: 'Basement Gym — Moisture-Barrier System', location: 'Christiansburg, VA', category: 'residential', images: ['assets/basement-floor.jpg'],    description: 'Damp basement transformed into a home gym with our moisture-blocking epoxy system. Diamond-ground so it will never peel.' },
     ];
 
-    function buildCard(p) {
+    // Normalise a project so it always has an `images` array
+    function normalise(p) {
+      if (!p.images || p.images.length === 0) {
+        // Support old single-image field
+        p.images = p.image ? [p.image] : [];
+      }
+      // CMS stores list items as objects with a `photo` key
+      p.images = p.images.map(i => (typeof i === 'object' && i.photo) ? i.photo : i).filter(Boolean);
+      return p;
+    }
+
+    function buildCard(p, index) {
       const label = CAT_LABELS[p.category] || p.category;
-      const img = p.image || '';
+      const thumb = p.images && p.images.length > 0 ? p.images[0] : '';
+      const count = p.images && p.images.length > 1
+        ? `<span style="position:absolute;bottom:8px;right:8px;background:rgba(0,0,0,0.6);color:#FEC300;font-size:11px;font-weight:700;padding:3px 8px;border-radius:20px;letter-spacing:0.05em;">${p.images.length} photos</span>`
+        : '';
       return `
-        <article class="gallery-item group relative rounded-2xl overflow-hidden bg-[#1a1a1a] border border-white/5 hover:border-yellow-400/20 transition-all duration-300" data-category="${p.category}" aria-label="${p.title} — ${p.location}">
-          <div class="relative overflow-hidden h-64">
-            <img src="${img}" alt="${p.title} in ${p.location}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" onerror="this.parentElement.style.background='#262626'"/>
+        <article class="gallery-item group relative rounded-2xl overflow-hidden bg-[#1a1a1a] border border-white/5 hover:border-yellow-400/20 transition-all duration-300" data-category="${p.category}" data-index="${index}" role="button" tabindex="0" aria-label="View ${p.title}">
+          <div class="relative overflow-hidden h-64" style="cursor:pointer;">
+            <img src="${thumb}" alt="${p.title} in ${p.location}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" onerror="this.parentElement.style.background='#262626'"/>
             <div class="absolute top-3 left-3">
               <span class="bg-black/60 backdrop-blur-sm text-yellow-400 text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">${label}</span>
             </div>
+            ${count}
           </div>
           <div class="p-6">
             <div class="flex items-center gap-2 text-[#adaaaa] text-xs mb-2">
@@ -190,13 +205,13 @@
           No projects in this category yet.
         </div>`;
       } else {
-        grid.innerHTML = filtered.map(buildCard).join('');
+        grid.innerHTML = filtered.map((p, i) => buildCard(p, i)).join('');
       }
+      attachCardHandlers(filtered);
     }
 
     function filterGallery(cat) {
       activeFilter = cat;
-      // Update buttons
       document.querySelectorAll('.filter-btn').forEach(b => {
         b.classList.remove('active-filter');
         b.classList.add('border-white/20', 'text-white/70');
@@ -211,13 +226,13 @@
       renderGrid();
     }
 
-    // Load projects from /api/projects (Cloudflare Pages Function)
+    // Load projects from /api/projects
     async function loadProjects() {
       try {
-        // Add timestamp to prevent browser caching
         const res = await fetch('/api/projects?t=' + Date.now());
         if (res.ok) {
-          const projects = await res.json();
+          const raw = await res.json();
+          const projects = raw.map(normalise);
           allProjects = projects.length > 0
             ? [...projects, ...FALLBACK_PROJECTS]
             : FALLBACK_PROJECTS;
@@ -292,119 +307,214 @@
 </script>
 
 <!-- Lightbox -->
-<div id="lightbox" role="dialog" aria-modal="true" aria-label="Project image viewer" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.95); flex-direction:column; align-items:center; justify-content:center;">
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Project image viewer"
+  style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; width:100%; height:100%;
+         z-index:9999; background:rgba(0,0,0,0.96);
+         flex-direction:column; align-items:center; justify-content:center; overflow:hidden;">
 
   <!-- Close -->
-  <button id="lb-close" aria-label="Close" style="position:absolute; top:16px; right:16px; background:rgba(255,255,255,0.1); border:none; color:#fff; width:44px; height:44px; border-radius:50%; font-size:20px; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:10;">✕</button>
+  <button id="lb-close" aria-label="Close lightbox"
+    style="position:absolute; top:16px; right:16px; background:rgba(255,255,255,0.12);
+           border:none; color:#fff; width:44px; height:44px; border-radius:50%;
+           font-size:20px; cursor:pointer; display:flex; align-items:center;
+           justify-content:center; z-index:10; flex-shrink:0;">✕</button>
 
-  <!-- Prev -->
-  <button id="lb-prev" aria-label="Previous image" style="position:absolute; left:12px; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.1); border:none; color:#fff; width:48px; height:48px; border-radius:50%; font-size:24px; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:10;">‹</button>
+  <!-- Prev project -->
+  <button id="lb-prev-project" aria-label="Previous project"
+    style="position:absolute; left:8px; bottom:20px; background:rgba(255,255,255,0.08);
+           border:1px solid rgba(255,255,255,0.15); color:#fff; padding:6px 14px;
+           border-radius:20px; font-size:12px; cursor:pointer; z-index:10; white-space:nowrap;">
+    ← Prev Project
+  </button>
 
-  <!-- Next -->
-  <button id="lb-next" aria-label="Next image" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.1); border:none; color:#fff; width:48px; height:48px; border-radius:50%; font-size:24px; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:10;">›</button>
+  <!-- Next project -->
+  <button id="lb-next-project" aria-label="Next project"
+    style="position:absolute; right:8px; bottom:20px; background:rgba(255,255,255,0.08);
+           border:1px solid rgba(255,255,255,0.15); color:#fff; padding:6px 14px;
+           border-radius:20px; font-size:12px; cursor:pointer; z-index:10; white-space:nowrap;">
+    Next Project →
+  </button>
+
+  <!-- Prev image (within project) -->
+  <button id="lb-prev" aria-label="Previous photo"
+    style="position:absolute; left:8px; top:50%; transform:translateY(-50%);
+           background:rgba(255,255,255,0.12); border:none; color:#fff;
+           width:48px; height:48px; border-radius:50%; font-size:26px;
+           cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:10;">‹</button>
+
+  <!-- Next image (within project) -->
+  <button id="lb-next" aria-label="Next photo"
+    style="position:absolute; right:8px; top:50%; transform:translateY(-50%);
+           background:rgba(255,255,255,0.12); border:none; color:#fff;
+           width:48px; height:48px; border-radius:50%; font-size:26px;
+           cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:10;">›</button>
 
   <!-- Image -->
-  <div style="max-width:90vw; max-height:75vh; display:flex; align-items:center; justify-content:center;">
-    <img id="lb-img" src="" alt="" style="max-width:90vw; max-height:75vh; object-fit:contain; border-radius:12px;"/>
+  <div style="display:flex; align-items:center; justify-content:center; width:100%; flex:1; padding:60px 70px 10px; box-sizing:border-box;">
+    <img id="lb-img" src="" alt=""
+      style="max-width:100%; max-height:calc(100vh - 180px); object-fit:contain; border-radius:10px; display:block;"/>
   </div>
 
-  <!-- Caption -->
-  <div style="margin-top:16px; text-align:center; padding:0 60px;">
-    <p id="lb-title" style="color:#fff; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.1rem; margin-bottom:4px;"></p>
-    <p id="lb-location" style="color:#FEC300; font-size:0.8rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:6px;"></p>
-    <p id="lb-desc" style="color:rgba(255,255,255,0.6); font-size:0.85rem; max-width:600px; line-height:1.6;"></p>
+  <!-- Caption + image counter -->
+  <div style="text-align:center; padding:10px 70px 50px; flex-shrink:0; width:100%; box-sizing:border-box;">
+    <p id="lb-img-counter" style="color:#FEC300; font-size:0.75rem; font-weight:700; letter-spacing:0.1em; margin-bottom:6px;"></p>
+    <p id="lb-title" style="color:#fff; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.05rem; margin-bottom:3px;"></p>
+    <p id="lb-location" style="color:rgba(255,255,255,0.5); font-size:0.78rem; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:5px;"></p>
+    <p id="lb-desc" style="color:rgba(255,255,255,0.55); font-size:0.82rem; max-width:560px; line-height:1.6; margin:0 auto;"></p>
   </div>
-
-  <!-- Counter -->
-  <p id="lb-counter" style="position:absolute; bottom:16px; left:50%; transform:translateX(-50%); color:rgba(255,255,255,0.4); font-size:0.75rem; letter-spacing:0.1em;"></p>
 </div>
 
 <script>
-  // Lightbox logic
-  const lightbox = document.getElementById('lightbox');
-  const lbImg = document.getElementById('lb-img');
-  const lbTitle = document.getElementById('lb-title');
-  const lbLocation = document.getElementById('lb-location');
-  const lbDesc = document.getElementById('lb-desc');
-  const lbCounter = document.getElementById('lb-counter');
-  let currentIndex = 0;
-  let currentProjects = [];
+  // ── Lightbox state ─────────────────────────────────────────────────────────
+  let lbProjectIndex = 0; // which project
+  let lbImageIndex = 0;   // which image within that project
+  let lbFilteredProjects = []; // the currently visible filtered list
+  let savedScrollY = 0;
 
-  function openLightbox(index) {
-    currentIndex = index;
-    const p = currentProjects[index];
-    lbImg.src = p.image || '';
+  const lightbox      = document.getElementById('lightbox');
+  const lbImg         = document.getElementById('lb-img');
+  const lbTitle       = document.getElementById('lb-title');
+  const lbLocation    = document.getElementById('lb-location');
+  const lbDesc        = document.getElementById('lb-desc');
+  const lbImgCounter  = document.getElementById('lb-img-counter');
+
+  function getFilteredProjects() {
+    if (!window.activeFilter || window.activeFilter === 'all') return window.allProjects || [];
+    return (window.allProjects || []).filter(p => p.category === window.activeFilter);
+  }
+
+  function showImage() {
+    const p = lbFilteredProjects[lbProjectIndex];
+    const imgs = p.images || [];
+    const img = imgs[lbImageIndex] || '';
+
+    lbImg.src = img;
     lbImg.alt = p.title || '';
     lbTitle.textContent = p.title || '';
     lbLocation.textContent = p.location || '';
     lbDesc.textContent = p.description || '';
-    lbCounter.textContent = (index + 1) + ' / ' + currentProjects.length;
-    lightbox.style.display = 'flex';
+
+    // Image counter only shows if multiple images
+    lbImgCounter.textContent = imgs.length > 1
+      ? `Photo ${lbImageIndex + 1} of ${imgs.length}  ·  Project ${lbProjectIndex + 1} of ${lbFilteredProjects.length}`
+      : `Project ${lbProjectIndex + 1} of ${lbFilteredProjects.length}`;
+
+    // Show/hide within-project arrows
+    document.getElementById('lb-prev').style.display = imgs.length > 1 ? 'flex' : 'none';
+    document.getElementById('lb-next').style.display = imgs.length > 1 ? 'flex' : 'none';
+  }
+
+  function openLightbox(projectIndex) {
+    lbFilteredProjects = getFilteredProjects();
+    lbProjectIndex = projectIndex;
+    lbImageIndex = 0;
+
+    // Lock body scroll — save position first
+    savedScrollY = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${savedScrollY}px`;
+    document.body.style.width = '100%';
     document.body.style.overflow = 'hidden';
-    lbImg.focus();
+
+    lightbox.style.display = 'flex';
+    showImage();
+    document.getElementById('lb-close').focus();
   }
 
   function closeLightbox() {
     lightbox.style.display = 'none';
+
+    // Restore body scroll
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
     document.body.style.overflow = '';
+    window.scrollTo(0, savedScrollY);
   }
 
-  function showPrev() {
-    currentIndex = (currentIndex - 1 + currentProjects.length) % currentProjects.length;
-    openLightbox(currentIndex);
+  function prevImage() {
+    const imgs = lbFilteredProjects[lbProjectIndex].images || [];
+    if (imgs.length > 1) {
+      lbImageIndex = (lbImageIndex - 1 + imgs.length) % imgs.length;
+      showImage();
+    }
   }
 
-  function showNext() {
-    currentIndex = (currentIndex + 1) % currentProjects.length;
-    openLightbox(currentIndex);
+  function nextImage() {
+    const imgs = lbFilteredProjects[lbProjectIndex].images || [];
+    if (imgs.length > 1) {
+      lbImageIndex = (lbImageIndex + 1) % imgs.length;
+      showImage();
+    }
+  }
+
+  function prevProject() {
+    lbProjectIndex = (lbProjectIndex - 1 + lbFilteredProjects.length) % lbFilteredProjects.length;
+    lbImageIndex = 0;
+    showImage();
+  }
+
+  function nextProject() {
+    lbProjectIndex = (lbProjectIndex + 1) % lbFilteredProjects.length;
+    lbImageIndex = 0;
+    showImage();
   }
 
   document.getElementById('lb-close').addEventListener('click', closeLightbox);
-  document.getElementById('lb-prev').addEventListener('click', showPrev);
-  document.getElementById('lb-next').addEventListener('click', showNext);
+  document.getElementById('lb-prev').addEventListener('click', prevImage);
+  document.getElementById('lb-next').addEventListener('click', nextImage);
+  document.getElementById('lb-prev-project').addEventListener('click', prevProject);
+  document.getElementById('lb-next-project').addEventListener('click', nextProject);
 
-  // Click outside to close
-  lightbox.addEventListener('click', function(e) {
-    if (e.target === lightbox) closeLightbox();
-  });
+  // Click backdrop to close
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
 
   // Keyboard navigation
-  document.addEventListener('keydown', function(e) {
+  document.addEventListener('keydown', e => {
     if (lightbox.style.display === 'none') return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft') showPrev();
-    if (e.key === 'ArrowRight') showNext();
+    if (e.key === 'Escape')      closeLightbox();
+    if (e.key === 'ArrowLeft')   prevImage();
+    if (e.key === 'ArrowRight')  nextImage();
+    if (e.key === 'ArrowUp')     prevProject();
+    if (e.key === 'ArrowDown')   nextProject();
   });
 
-  // Touch swipe support
-  let touchStartX = 0;
-  lightbox.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  // Swipe support
+  let touchStartX = 0, touchStartY = 0;
+  lightbox.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
   lightbox.addEventListener('touchend', e => {
-    const diff = touchStartX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 50) diff > 0 ? showNext() : showPrev();
+    const dx = touchStartX - e.changedTouches[0].clientX;
+    const dy = touchStartY - e.changedTouches[0].clientY;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+      dx > 0 ? nextImage() : prevImage();
+    } else if (Math.abs(dy) > Math.abs(dx) && Math.abs(dy) > 50) {
+      dy > 0 ? nextProject() : prevProject();
+    }
   });
 
-  // Hook into gallery render — add click handlers after cards are built
-  const _origRenderGrid = window.renderGrid;
-  function attachLightboxHandlers() {
-    currentProjects = allProjects || [];
+  // Attach click handlers to gallery cards
+  function attachCardHandlers(filteredProjects) {
     document.querySelectorAll('.gallery-item').forEach((card, i) => {
       card.style.cursor = 'pointer';
-      card.addEventListener('click', () => openLightbox(i));
-      card.setAttribute('role', 'button');
-      card.setAttribute('tabindex', '0');
-      card.setAttribute('aria-label', 'View project details');
-      card.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(i); }
-      });
+      const handler = () => openLightbox(i);
+      card.onclick = handler;
+      card.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handler(); } };
     });
   }
 
-  // Override renderGrid to attach handlers after render
-  const origRenderGrid = renderGrid;
-  window.renderGrid = function() {
-    origRenderGrid();
-    setTimeout(attachLightboxHandlers, 100);
+  // Expose to outer scope so renderGrid can call it
+  window.attachCardHandlers = attachCardHandlers;
+  window.allProjects = [];
+  window.activeFilter = 'all';
+
+  // Patch filterGallery to update window.activeFilter
+  const _origFilter = window.filterGallery;
+  window.filterGallery = function(cat) {
+    window.activeFilter = cat;
+    if (_origFilter) _origFilter(cat);
   };
 </script>
 
