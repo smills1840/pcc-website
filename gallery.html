@@ -214,7 +214,8 @@
     // Load projects from /api/projects (Cloudflare Pages Function)
     async function loadProjects() {
       try {
-        const res = await fetch('/api/projects');
+        // Add timestamp to prevent browser caching
+        const res = await fetch('/api/projects?t=' + Date.now());
         if (res.ok) {
           const projects = await res.json();
           allProjects = projects.length > 0
