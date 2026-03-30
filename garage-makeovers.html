@@ -233,41 +233,33 @@
           </ul>
         </div>
         <div class="w-full md:w-1/2 reveal reveal-right">
-          <div id="ba-slider" class="relative rounded-2xl overflow-hidden border border-white/5 shadow-2xl select-none cursor-ew-resize" style="height: clamp(240px, 45vw, 420px); touch-action: none;">
+          <div id="ba-slider" class="relative rounded-2xl overflow-hidden border border-white/5 shadow-2xl select-none cursor-ew-resize" style="touch-action: none;">
 
-            <!-- BEFORE layer (full bg) -->
-            <div class="absolute inset-0">
-              <img class="w-full h-full object-cover" src="assets/before-floor.jpg" alt="Before — cracked concrete floor" loading="lazy"/>
+            <div class="relative w-full">
+              <img class="w-full h-auto md:h-[500px] object-cover" src="assets/before-floor.jpg" alt="Before — cracked concrete floor" loading="lazy"/>
             </div>
 
-            <!-- AFTER layer (clipped by JS) -->
-            <div id="ba-after" class="absolute inset-0 overflow-hidden" style="width:50%;">
-              <img class="h-full object-cover" style="min-width:var(--slider-full-width,100%);" src="assets/after-floor.jpg" alt="After — finished epoxy floor" loading="lazy"/>
+            <div id="ba-after" class="absolute top-0 left-0 bottom-0 overflow-hidden" style="width:50%;">
+              <img class="h-full object-cover max-w-none" style="min-width:var(--slider-full-width,100%);" src="assets/after-floor.jpg" alt="After — finished epoxy floor" loading="lazy"/>
             </div>
 
-            <!-- BEFORE label — fades in when slider is far left, top-right corner -->
             <div id="label-before" class="absolute top-4 right-4 glass px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider text-white z-10 pointer-events-none transition-opacity duration-300 opacity-0">Before</div>
 
-            <!-- AFTER label — fades in when slider is far right, top-left corner -->
             <div id="label-after" class="absolute top-4 left-4 bg-primary-fixed px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider text-on-primary z-10 pointer-events-none transition-opacity duration-300 opacity-0">After</div>
 
-            <!-- Divider line + handle -->
             <div id="ba-divider" class="absolute top-0 bottom-0 z-20 pointer-events-none" style="left:50%;transform:translateX(-50%);">
               <div class="w-0.5 h-full bg-primary-fixed shadow-[0_0_15px_rgba(254,195,0,0.6)]"></div>
-              <!-- Arrow handle: swap_horiz points LEFT and RIGHT -->
               <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 glass w-12 h-12 rounded-full flex items-center justify-center border-2 border-primary-fixed shadow-lg">
                 <span class="material-symbols-outlined text-primary-fixed" style="font-size:22px;">swap_horiz</span>
               </div>
             </div>
 
-            <!-- Initial drag hint -->
             <div id="drag-hint" class="absolute inset-0 flex items-center justify-center z-30 pointer-events-none transition-opacity duration-500">
               <div class="glass px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest text-white flex items-center gap-2">
                 <span class="material-symbols-outlined text-primary text-sm">swap_horiz</span> Drag to compare
               </div>
             </div>
           </div>
-        </div>
       </div>
     </div>
   </section>
