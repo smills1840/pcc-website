@@ -177,7 +177,7 @@
     <a class="font-headline font-bold uppercase text-sm text-gray-400 hover:text-white" href="residential-epoxy.html">Residential Epoxy</a>
     <a class="font-headline font-bold uppercase text-sm text-gray-400 hover:text-white" href="commercial-coatings.html">Commercial Coatings</a>
     <a class="font-headline font-bold uppercase text-sm text-gray-400 hover:text-white" href="polished-concrete.html">Polished Concrete</a>
-    <a href="contact.html" class="tectonic-gradient text-on-primary px-6 py-2.5 rounded-full font-bold text-xs uppercase text-center">Get a Quote</a>
+    <a href="contact.html" class="tectonic-gradient text-on-primary px-6 py-2.5 rounded-full font-bold text-xs uppercase text-center block w-full">Get a Quote</a>
   </div>
 </nav>
 
@@ -203,10 +203,10 @@
           Elevate your garage with industrial-grade coatings installed in just one day. Proudly serving Blacksburg, Roanoke, Christiansburg, Radford, Pulaski, and all of Southwest Virginia.
         </p>
         <div class="hero-line-4 flex flex-wrap gap-4">
-          <a href="#estimator" class="tectonic-gradient text-on-primary px-10 py-4 rounded-full font-extrabold text-lg flex items-center gap-3 hover:scale-105 transition-transform btn-pulse">
+          <a href="#estimator" class="tectonic-gradient text-on-primary px-7 py-3.5 sm:px-10 sm:py-4 rounded-full font-extrabold sm:text-lg flex items-center gap-3 hover:scale-105 transition-transform btn-pulse">
             Get Instant Estimate <span class="material-symbols-outlined">arrow_forward</span>
           </a>
-          <a href="#process" class="glass px-10 py-4 rounded-full font-bold text-lg text-white hover:bg-white/10 transition-all">
+          <a href="#process" class="glass px-7 py-3.5 sm:px-10 sm:py-4 rounded-full font-bold sm:text-lg text-white hover:bg-white/10 transition-all">
             View the Process
           </a>
         </div>
@@ -220,7 +220,7 @@
 
   <!-- Before/After Slider -->
   <section class="py-24 bg-surface-container-low overflow-hidden">
-    <div class="max-w-7xl mx-auto px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
       <div class="flex flex-col md:flex-row gap-12 items-center">
         <div class="w-full md:w-1/2 reveal reveal-left">
           <div class="title-bar"></div>
@@ -269,7 +269,7 @@
   ============================================================ -->
   <section id="estimator" class="py-16 md:py-32 bg-background relative overflow-hidden">
     <div class="float-orb absolute left-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/3 rounded-full blur-[120px] pointer-events-none"></div>
-    <div class="max-w-5xl mx-auto px-8 relative z-10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-8 relative z-10">
       <div class="text-center mb-16 reveal">
         <span class="inline-block px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-4">Instant Pricing</span>
         <h2 class="font-headline text-3xl md:text-5xl font-bold mb-4" style="letter-spacing:-0.02em;">
@@ -292,24 +292,24 @@
               <p class="text-on-surface-variant text-sm mb-6">Select a common size below, or type in a custom square footage.</p>
               <div class="grid grid-cols-3 gap-3 mb-6">
                 <button onclick="setSize(240,this)" class="size-btn glass rounded-xl p-5 text-center hover:border-primary/60 transition-all group border border-white/5">
-                  <div class="font-headline font-bold text-3xl text-white group-hover:text-primary transition-colors mb-1">1-Car</div>
+                  <div class="font-headline font-bold text-xl sm:text-3xl text-white group-hover:text-primary transition-colors mb-1">1-Car</div>
                   <div class="text-sm font-bold text-primary/80 mb-1">~240 sq ft</div>
                   <div class="text-[11px] text-on-surface-variant">12 × 20 ft</div>
                 </button>
                 <button onclick="setSize(440,this)" class="size-btn glass rounded-xl p-5 text-center hover:border-primary/60 transition-all group border border-white/5">
-                  <div class="font-headline font-bold text-3xl text-white group-hover:text-primary transition-colors mb-1">2-Car</div>
+                  <div class="font-headline font-bold text-xl sm:text-3xl text-white group-hover:text-primary transition-colors mb-1">2-Car</div>
                   <div class="text-sm font-bold text-primary/80 mb-1">~440 sq ft</div>
                   <div class="text-[11px] text-on-surface-variant">20 × 22 ft</div>
                 </button>
                 <button onclick="setSize(660,this)" class="size-btn glass rounded-xl p-5 text-center hover:border-primary/60 transition-all group border border-white/5">
-                  <div class="font-headline font-bold text-3xl text-white group-hover:text-primary transition-colors mb-1">3-Car</div>
+                  <div class="font-headline font-bold text-xl sm:text-3xl text-white group-hover:text-primary transition-colors mb-1">3-Car</div>
                   <div class="text-sm font-bold text-primary/80 mb-1">~660 sq ft</div>
                   <div class="text-[11px] text-on-surface-variant">30 × 22 ft</div>
                 </button>
               </div>
               <p class="text-[11px] text-on-surface-variant uppercase tracking-widest text-center mb-3">— or enter custom sq ft —</p>
               <div class="relative">
-                <input id="sqft-input" type="number" class="sqft-input" placeholder="400" min="1" max="9999" oninput="updateEstimate()"/>
+                <input id="sqft-input" type="number" inputmode="numeric" pattern="[0-9]*" class="sqft-input" placeholder="400" min="1" max="9999" oninput="updateEstimate()"/>
                 <span class="absolute right-5 top-1/2 -translate-y-1/2 font-headline font-bold text-on-surface-variant text-lg pointer-events-none">sq ft</span>
               </div>
             </div>
@@ -395,7 +395,7 @@
   </section>
 
   <!-- Benefits Grid -->
-  <section class="py-24 max-w-7xl mx-auto px-8">
+  <section class="py-24 max-w-7xl mx-auto px-4 sm:px-8">
     <div class="text-center mb-16 reveal">
       <h2 class="text-4xl font-headline font-bold text-white mb-4 uppercase tracking-tighter">Engineered for <span class="shimmer-text">Excellence</span></h2>
       <p class="text-on-surface-variant max-w-xl mx-auto">Built to withstand the toughest garage environments — not just look good.</p>
@@ -437,7 +437,7 @@
 
   <!-- Process -->
   <section id="process" class="py-14 md:py-24 bg-surface">
-    <div class="max-w-7xl mx-auto px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
       <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 reveal">
         <div>
           <div class="title-bar"></div>
@@ -457,11 +457,11 @@
   <!-- Quote Form -->
   <section id="quote-form" class="py-24 relative overflow-hidden">
     <div class="float-orb absolute right-0 top-1/2 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
-    <div class="max-w-7xl mx-auto px-8 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
       <div class="glass rounded-2xl lg:rounded-[40px] overflow-hidden border border-white/10 flex flex-col lg:flex-row reveal reveal-scale">
         <div class="lg:w-1/2 p-5 sm:p-8 lg:p-20 flex flex-col justify-center">
           <div class="title-bar"></div>
-          <h2 class="text-5xl font-headline font-bold text-white mb-8">Ready to <span class="shimmer-text">Transform</span> Your Garage?</h2>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-headline font-bold text-white mb-8">Ready to <span class="shimmer-text">Transform</span> Your Garage?</h2>
           <p class="text-on-surface-variant text-lg mb-10">Fill out the form for a free, no-obligation on-site quote. Most quotes delivered within 24 hours.</p>
           <div class="flex items-center gap-4 mb-6">
             <div class="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">

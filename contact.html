@@ -82,7 +82,7 @@
     <a class="font-headline font-bold uppercase text-sm text-gray-400 hover:text-white" href="residential-epoxy.html">Residential Epoxy</a>
     <a class="font-headline font-bold uppercase text-sm text-gray-400 hover:text-white" href="commercial-coatings.html">Commercial Coatings</a>
     <a class="font-headline font-bold uppercase text-sm text-gray-400 hover:text-white" href="polished-concrete.html">Polished Concrete</a>
-    <a href="contact.html" class="tectonic-gradient text-on-primary px-6 py-2.5 rounded-full font-bold text-xs uppercase text-center">Get a Quote</a>
+    <a href="contact.html" class="tectonic-gradient text-on-primary px-6 py-2.5 rounded-full font-bold text-xs uppercase text-center block w-full">Get a Quote</a>
   </div>
 </nav>
 
@@ -148,16 +148,16 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
                 <label for="contact-name" class="block text-xs font-bold text-white/50 uppercase tracking-widest mb-2">Full Name *</label>
-                <input id="contact-name" name="name" type="text" required class="w-full bg-surface-variant border-none rounded-xl text-white placeholder-white/20 focus:ring-2 focus:ring-primary transition-all px-4 py-3" placeholder="John Smith"/>
+                <input id="contact-name" name="name" type="text" autocomplete="name" required class="w-full bg-surface-variant border-none rounded-xl text-white placeholder-white/20 focus:ring-2 focus:ring-primary transition-all px-4 py-3" placeholder="John Smith"/>
               </div>
               <div>
                 <label for="contact-phone" class="block text-xs font-bold text-white/50 uppercase tracking-widest mb-2">Phone Number *</label>
-                <input id="contact-phone" name="phone" type="tel" required class="w-full bg-surface-variant border-none rounded-xl text-white placeholder-white/20 focus:ring-2 focus:ring-primary transition-all px-4 py-3" placeholder="(540) 000-0000"/>
+                <input id="contact-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required class="w-full bg-surface-variant border-none rounded-xl text-white placeholder-white/20 focus:ring-2 focus:ring-primary transition-all px-4 py-3" placeholder="(540) 000-0000"/>
               </div>
             </div>
             <div>
               <label for="contact-email" class="block text-xs font-bold text-white/50 uppercase tracking-widest mb-2">Email Address</label>
-              <input id="contact-email" name="email" type="email" class="w-full bg-surface-variant border-none rounded-xl text-white placeholder-white/20 focus:ring-2 focus:ring-primary transition-all px-4 py-3" placeholder="john@example.com" aria-label="Email address"/>
+              <input id="contact-email" name="email" type="email" inputmode="email" autocomplete="email" class="w-full bg-surface-variant border-none rounded-xl text-white placeholder-white/20 focus:ring-2 focus:ring-primary transition-all px-4 py-3" placeholder="john@example.com" aria-label="Email address"/>
             </div>
             <div>
               <label for="contact-service" class="block text-xs font-bold text-white/50 uppercase tracking-widest mb-2">Service Interested In</label>

@@ -58,18 +58,6 @@
     });
   });
 
-  // --- Cursor glow on interactive elements ---
-  const glow = document.createElement('div');
-  glow.style.cssText = 'position:fixed;width:300px;height:300px;border-radius:50%;pointer-events:none;z-index:9999;background:radial-gradient(circle,rgba(254,195,0,0.04) 0%,transparent 70%);transform:translate(-50%,-50%);transition:opacity 0.3s ease;opacity:0;';
-  document.body.appendChild(glow);
-
-  document.addEventListener('mousemove', e => {
-    glow.style.left = e.clientX + 'px';
-    glow.style.top  = e.clientY + 'px';
-    glow.style.opacity = '1';
-  });
-  document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
-
   // --- Parallax on hero images ---
   const parallaxEls = document.querySelectorAll('[data-parallax]');
   if (parallaxEls.length) {

@@ -66,15 +66,15 @@
 }
 .float-orb { animation: floatOrb 8s ease-in-out infinite; }
 
-/* --- Nav link underline slide --- */
-nav a { position:relative; }
-nav a::after {
+/* --- Nav link underline slide (text links only, not pill buttons) --- */
+nav a:not([class*="rounded-full"]) { position:relative; }
+nav a:not([class*="rounded-full"])::after {
   content:''; position:absolute; bottom:-2px; left:0;
   width:0; height:2px; background:#FEC300;
   transition: width 0.3s cubic-bezier(0.16,1,0.3,1);
 }
-nav a:hover::after { width:100%; }
-nav a.active-nav::after { width:100%; }
+nav a:not([class*="rounded-full"]):hover::after { width:100%; }
+nav a:not([class*="rounded-full"]).active-nav::after { width:100%; }
 
 /* --- Card hover lift --- */
 .card-lift {
@@ -137,3 +137,17 @@ nav a.active-nav::after { width:100%; }
 
 /* --- Page transition fade --- */
 body { animation: heroFadeUp 0.5s ease both; }
+
+/* --- Mobile touch optimizations --- */
+a, button { touch-action: manipulation; }
+@media (max-width: 767px) {
+  /* Slightly tighten hero text on very small screens */
+  .hero-line-2 { font-size: clamp(2rem, 10vw, 3rem); }
+  /* Prevent hero stat bar from clipping content */
+  .scroll-indicator { bottom: 1.5rem; }
+}
+/* Hide cursor effects on touch-only devices */
+@media (hover: none) {
+  .card-lift:hover { transform: none; box-shadow: none; }
+  .img-zoom:hover img, .img-zoom:hover .img-placeholder { transform: none; }
+}
