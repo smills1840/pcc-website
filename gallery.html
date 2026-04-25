@@ -9,9 +9,11 @@
 <meta property="og:site_name" content="Prestige Concrete Coatings"/>
 <meta property="og:title" content="Project Gallery | Prestige Concrete Coatings"/>
 <meta property="og:description" content="View real epoxy garage floor, commercial coating, and polished concrete projects by Prestige Concrete Coatings across Southwest Virginia."/>
-<meta property="og:image" content="https://prestigeconcretecoatings.com/assets/hero-epoxy-floor.jpg"/>
+<meta property="og:url" content="https://prestigeconcretecoatings.com/gallery"/>
+<meta property="og:image" content="https://prestigeconcretecoatings.com/assets/hero-epoxy-floor.webp"/>
 <link rel="icon" type="image/png" href="assets/logo.png"/>
 <link rel="apple-touch-icon" href="assets/logo.png"/>
+<link rel="canonical" href="https://prestigeconcretecoatings.com/gallery"/>
 <title>Project Gallery | Prestige Concrete Coatings | Southwest Virginia</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
@@ -145,12 +147,12 @@
 
     // Hardcoded fallback projects
     const FALLBACK_PROJECTS = [
-      { title: 'Full-Flake Garage Makeover',             location: 'Blacksburg, VA',     category: 'garage',      images: ['assets/garage-hero.jpg'],       description: '2-car garage with our signature full-broadcast flake system. Diamond-ground, base coated, and sealed with a polyaspartic topcoat for a showroom finish.' },
-      { title: '3-Car Garage — Tan Flake',               location: 'Christiansburg, VA', category: 'garage',      images: ['assets/garage-floor.jpg'],      description: 'Custom tan and brown flake blend for a warm, natural look. UV-stable topcoat installed in one day with zero downtime.' },
-      { title: 'Pool Deck Coating',                      location: 'Radford, VA',        category: 'residential', images: ['assets/patio-coating.jpg'],     description: 'UV-stable full-flake system on an in-ground pool deck. Slip-resistant texture, weatherproof, and built to handle freeze-thaw cycles year-round.' },
-      { title: 'Industrial Facility — High-Gloss Epoxy', location: 'Roanoke, VA',        category: 'commercial',  images: ['assets/commercial-hangar.jpg'], description: 'Large commercial facility coating with our industrial-grade epoxy system. Chemical-resistant, forklift-rated, and installed over a weekend to minimize downtime.' },
-      { title: 'Retail Showroom — High-Gloss Polish',    location: 'Blacksburg, VA',     category: 'polished',    images: ['assets/polished-retail.jpg'],   description: 'Multi-stage diamond polishing to a mirror-like 3000-grit finish. Zero VOCs, lifetime durability, and zero ongoing maintenance costs.' },
-      { title: 'Basement Gym — Moisture-Barrier System', location: 'Christiansburg, VA', category: 'residential', images: ['assets/basement-floor.jpg'],    description: 'Damp basement transformed into a home gym with our moisture-blocking epoxy system. Diamond-ground so it will never peel.' },
+      { title: 'Full-Flake Garage Makeover',             location: 'Blacksburg, VA',     category: 'garage',      images: ['assets/garage-hero.webp'],       description: '2-car garage with our signature full-broadcast flake system. Diamond-ground, base coated, and sealed with a polyaspartic topcoat for a showroom finish.' },
+      { title: '3-Car Garage — Tan Flake',               location: 'Christiansburg, VA', category: 'garage',      images: ['assets/garage-floor.webp'],      description: 'Custom tan and brown flake blend for a warm, natural look. UV-stable topcoat installed in one day with zero downtime.' },
+      { title: 'Pool Deck Coating',                      location: 'Radford, VA',        category: 'residential', images: ['assets/patio-coating.webp'],     description: 'UV-stable full-flake system on an in-ground pool deck. Slip-resistant texture, weatherproof, and built to handle freeze-thaw cycles year-round.' },
+      { title: 'Industrial Facility — High-Gloss Epoxy', location: 'Roanoke, VA',        category: 'commercial',  images: ['assets/commercial-hangar.webp'], description: 'Large commercial facility coating with our industrial-grade epoxy system. Chemical-resistant, forklift-rated, and installed over a weekend to minimize downtime.' },
+      { title: 'Retail Showroom — High-Gloss Polish',    location: 'Blacksburg, VA',     category: 'polished',    images: ['assets/polished-retail.webp'],   description: 'Multi-stage diamond polishing to a mirror-like 3000-grit finish. Zero VOCs, lifetime durability, and zero ongoing maintenance costs.' },
+      { title: 'Basement Gym — Moisture-Barrier System', location: 'Christiansburg, VA', category: 'residential', images: ['assets/basement-floor.webp'],    description: 'Damp basement transformed into a home gym with our moisture-blocking epoxy system. Diamond-ground so it will never peel.' },
     ];
 
     // Normalise a project so it always has an `images` array
@@ -291,7 +293,7 @@
       </div>
     </div>
     <div class="border-t border-white/5 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3">
-      <p class="text-xs text-gray-500">© 2025 Prestige Concrete Coatings. All rights reserved.</p>
+      <p class="text-xs text-gray-500">© 2026 Prestige Concrete Coatings. All rights reserved.</p>
       <p class="text-xs text-gray-500">Licensed &amp; Insured · Southwest Virginia</p>
     </div>
   </div>
@@ -520,18 +522,5 @@
   };
 </script>
 
-<!-- Netlify Identity Widget -->
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-<script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", user => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/";
-        });
-      }
-    });
-  }
-</script>
 </body>
 </html>
