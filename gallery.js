@@ -68,6 +68,21 @@
   const grid = document.getElementById("gallery-grid");
   const filterButtons = Array.from(document.querySelectorAll(".filter-btn"));
   let lightbox;
+  let lockedScrollY = 0;
+
+  function setLightboxPosition() {
+    if (!lightbox) return;
+    const viewport = window.visualViewport;
+    const top = viewport && Number.isFinite(viewport.pageTop)
+      ? viewport.pageTop
+      : window.scrollY + (viewport ? viewport.offsetTop : 0);
+    const height = viewport ? viewport.height : window.innerHeight;
+    const visibleHeight = Math.max(320, Math.round(height));
+    const mobileMediaHeight = Math.max(220, Math.min(visibleHeight - 120, Math.round(visibleHeight * 0.58)));
+    lightbox.style.setProperty("--gallery-lightbox-top", `${Math.max(0, Math.round(top))}px`);
+    lightbox.style.setProperty("--gallery-lightbox-height", `${visibleHeight}px`);
+    lightbox.style.setProperty("--gallery-lightbox-mobile-media-height", `${mobileMediaHeight}px`);
+  }
 
   function escapeHtml(value) {
     return String(value || "").replace(/[&<>"']/g, char => ({
@@ -259,6 +274,10 @@
     if (!lightbox) buildLightbox();
     state.projectIndex = projectIndex;
     state.imageIndex = 0;
+    lockedScrollY = window.scrollY;
+    setLightboxPosition();
+    window.scrollTo({ top: lockedScrollY, left: window.scrollX, behavior: "auto" });
+    document.documentElement.classList.add("gallery-open");
     document.body.classList.add("gallery-open");
     lightbox.classList.add("is-open");
     updateLightbox();
@@ -267,8 +286,10 @@
 
   function closeLightbox() {
     if (!lightbox) return;
+    document.documentElement.classList.remove("gallery-open");
     document.body.classList.remove("gallery-open");
     lightbox.classList.remove("is-open");
+    window.scrollTo({ top: lockedScrollY, left: window.scrollX, behavior: "auto" });
   }
 
   function previousImage() {
@@ -315,6 +336,12 @@
     if (event.key === "ArrowLeft") previousImage();
     if (event.key === "ArrowRight") nextImage();
   });
+
+  window.addEventListener("resize", setLightboxPosition);
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener("resize", setLightboxPosition);
+    window.visualViewport.addEventListener("scroll", setLightboxPosition);
+  }
 
   window.filterGallery = setFilter;
   loadProjects();
