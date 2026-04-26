@@ -1,0 +1,137 @@
+.quote-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(10px);
+}
+
+.quote-modal.is-open {
+  display: flex;
+}
+
+.quote-modal__panel {
+  width: min(1040px, 100%);
+  height: min(820px, calc(100vh - 36px));
+  background: #0e0e0e;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.58);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.quote-modal__bar {
+  min-height: 64px;
+  padding: 12px 14px 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: #131313;
+}
+
+.quote-modal__title {
+  margin: 0;
+  color: #fff;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.quote-modal__hint {
+  margin: 3px 0 0;
+  color: #adaaaa;
+  font-family: "Manrope", sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.quote-modal__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.quote-modal__done,
+.quote-modal__close {
+  min-height: 42px;
+  border: 0;
+  border-radius: 999px;
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.quote-modal__done {
+  padding: 0 16px;
+  color: #000;
+  background: linear-gradient(135deg, #FEC300 0%, #edb600 100%);
+}
+
+.quote-modal__close {
+  width: 42px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 24px;
+  line-height: 1;
+}
+
+.quote-modal__frame-wrap {
+  position: relative;
+  flex: 1;
+  background: #fff;
+}
+
+.quote-modal__loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #0e0e0e;
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+}
+
+.quote-modal__frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #fff;
+}
+
+body.quote-modal-open {
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .quote-modal {
+    padding: 0;
+  }
+
+  .quote-modal__panel {
+    height: 100vh;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+  }
+
+  .quote-modal__bar {
+    align-items: flex-start;
+    padding: 12px;
+  }
+
+  .quote-modal__done {
+    padding: 0 12px;
+    font-size: 12px;
+  }
+}
