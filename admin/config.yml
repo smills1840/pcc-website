@@ -12,6 +12,72 @@ display_url: https://www.prestigeconcretecoatings.com
 
 collections:
 
+  # PROJECT GALLERY
+  - name: "gallery"
+    label: "Project Gallery"
+    label_singular: "Project"
+    folder: "_projects"
+    create: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    summary: "{{title}} - {{location}}"
+    fields:
+      - label: "Project Title"
+        name: "title"
+        widget: "string"
+        hint: "e.g. 2-Car Garage - Full Flake System"
+
+      - label: "Location"
+        name: "location"
+        widget: "string"
+        hint: "e.g. Blacksburg, VA"
+
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Garage Floor", value: "garage" }
+          - { label: "Commercial", value: "commercial" }
+          - { label: "Residential", value: "residential" }
+          - { label: "Polished Concrete", value: "polished" }
+          - { label: "Patio / Pool Deck", value: "patio" }
+
+      - label: "Project Photos"
+        name: "images"
+        widget: "list"
+        min: 1
+        max: 10
+        hint: "Upload one or more photos. The first photo is used as the thumbnail."
+        field:
+          label: "Photo"
+          name: "photo"
+          widget: "image"
+
+      - label: "Description"
+        name: "description"
+        widget: "text"
+        hint: "2-3 sentences about the project, system used, challenge, and result"
+
+      - label: "Original Social Post URL"
+        name: "source_url"
+        widget: "string"
+        required: false
+        hint: "Optional. Zapier can store the Facebook or Instagram post URL here."
+
+      - label: "Featured"
+        name: "featured"
+        widget: "boolean"
+        default: false
+        hint: "Featured projects appear first in the gallery"
+
+      - label: "Date Completed"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_only: true
+        required: false
+
   # ── BLOG POSTS ─────────────────────────────────────────────────
   - name: "blog"
     label: "✍️ Blog Posts"

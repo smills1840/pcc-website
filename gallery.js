@@ -67,7 +67,7 @@
       description: project.description || "",
       featured: Boolean(project.featured),
       date: project.date || "",
-      permalink: project.permalink || "",
+      permalink: project.source_url || project.permalink || "",
       source: project.source || "",
       images: images.map(normalizeAssetPath).filter(Boolean),
     };
@@ -205,7 +205,11 @@
     const sourceLink = lightbox.querySelector(".project-lightbox__source");
     if (project.permalink) {
       sourceLink.href = project.permalink;
-      sourceLink.textContent = project.source === "instagram" ? "View on Instagram" : "View on Facebook";
+      sourceLink.textContent = project.source === "instagram"
+        ? "View on Instagram"
+        : project.source === "facebook"
+          ? "View on Facebook"
+          : "View original post";
       sourceLink.style.display = "inline-flex";
     } else {
       sourceLink.style.display = "none";
@@ -271,7 +275,7 @@
     let cmsProjects = [];
     try {
       if (location.protocol !== "file:") {
-        const response = await fetch("/api/social-projects?t=" + Date.now());
+        const response = await fetch("/api/projects?t=" + Date.now());
         if (response.ok) cmsProjects = await response.json();
       }
     } catch {
