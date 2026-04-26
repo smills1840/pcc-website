@@ -7,8 +7,8 @@ backend:
 media_folder: "assets"
 public_folder: "assets"
 
-site_url: https://pcc-website.pages.dev
-display_url: https://pcc-website.pages.dev
+site_url: https://www.prestigeconcretecoatings.com
+display_url: https://www.prestigeconcretecoatings.com
 
 collections:
 

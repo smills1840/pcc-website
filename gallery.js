@@ -7,56 +7,6 @@
     patio: "Patio & Pool Deck",
   };
 
-  const FALLBACK_PROJECTS = [
-    {
-      title: "Radford 2-Car Garage Full-Flake System",
-      location: "Radford, VA",
-      category: "garage",
-      images: [
-        "assets/fairlawn-va-2-car-garage-epoxy-flake-1.webp",
-        "assets/fairlawn-va-2-car-garage-epoxy-flake-2.webp",
-        "assets/fairlawn-va-2-car-garage-epoxy-flake-cove-base.webp",
-      ],
-      description: "A new 2-car garage finished with a premium full-flake epoxy system and custom color blend.",
-      date: "2026-04-24",
-    },
-    {
-      title: "Full-Flake Garage Makeover",
-      location: "Blacksburg, VA",
-      category: "garage",
-      images: ["assets/garage-hero.webp", "assets/garage-floor.webp"],
-      description: "Diamond-ground concrete, full-broadcast flake, and a polyaspartic topcoat for a clean showroom finish.",
-    },
-    {
-      title: "Industrial Facility High-Gloss Epoxy",
-      location: "Roanoke, VA",
-      category: "commercial",
-      images: ["assets/commercial-hangar.webp", "assets/restaurant-kitchen.webp", "assets/laboratory.webp"],
-      description: "Industrial-grade coating designed for traffic, chemical resistance, and easy maintenance.",
-    },
-    {
-      title: "Retail Showroom Polished Concrete",
-      location: "Blacksburg, VA",
-      category: "polished",
-      images: ["assets/polished-retail.webp", "assets/concrete-polishing.webp"],
-      description: "Multi-stage diamond polishing for a reflective, durable, low-maintenance commercial surface.",
-    },
-    {
-      title: "Pool Deck Coating",
-      location: "Radford, VA",
-      category: "residential",
-      images: ["assets/patio-coating.webp"],
-      description: "UV-stable flake coating with a slip-resistant texture for an outdoor pool deck.",
-    },
-    {
-      title: "Basement Gym Moisture-Barrier System",
-      location: "Christiansburg, VA",
-      category: "residential",
-      images: ["assets/basement-floor.webp"],
-      description: "A damp basement converted into a durable home gym surface with a moisture-blocking epoxy system.",
-    },
-  ];
-
   const state = {
     projects: [],
     filter: "all",
@@ -317,10 +267,8 @@
       cmsProjects = [];
     }
 
-    state.projects = uniqueProjects([
-      ...cmsProjects.map(normalizeProject),
-      ...FALLBACK_PROJECTS.map(normalizeProject),
-    ]).filter(project => project.images.length && !isPlaceholderProject(project));
+    state.projects = uniqueProjects(cmsProjects.map(normalizeProject))
+      .filter(project => project.images.length && !isPlaceholderProject(project));
 
     renderGrid();
   }
