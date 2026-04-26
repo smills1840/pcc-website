@@ -29,7 +29,6 @@
             <p class="quote-modal__hint">Complete the secure DripJobs form, then close this window to return to the page.</p>
           </div>
           <div class="quote-modal__actions">
-            <button type="button" class="quote-modal__done">I submitted it</button>
             <button type="button" class="quote-modal__close" aria-label="Close quote form">&times;</button>
           </div>
         </div>
@@ -43,7 +42,6 @@
     frame = modal.querySelector(".quote-modal__frame");
     closeButton = modal.querySelector(".quote-modal__close");
 
-    modal.querySelector(".quote-modal__done").addEventListener("click", closeModal);
     closeButton.addEventListener("click", closeModal);
     modal.addEventListener("click", function (event) {
       if (event.target === modal) closeModal();
