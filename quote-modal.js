@@ -4,6 +4,16 @@
   let frame;
   let closeButton;
   let lastFocus;
+  let lockedScrollY = 0;
+
+  function setModalPosition() {
+    if (!modal) return;
+    const viewport = window.visualViewport;
+    const top = viewport ? viewport.pageTop : window.scrollY;
+    const height = viewport ? viewport.height : window.innerHeight;
+    modal.style.setProperty("--quote-modal-top", `${Math.max(0, top)}px`);
+    modal.style.setProperty("--quote-modal-height", `${Math.max(320, height)}px`);
+  }
 
   function buildModal() {
     modal = document.createElement("div");
@@ -48,6 +58,10 @@
     event.preventDefault();
     if (!modal) buildModal();
     lastFocus = document.activeElement;
+    lockedScrollY = window.scrollY;
+    setModalPosition();
+    window.scrollTo({ top: lockedScrollY, left: window.scrollX, behavior: "auto" });
+    document.documentElement.classList.add("quote-modal-open");
     document.body.classList.add("quote-modal-open");
     modal.classList.add("is-open");
     modal.querySelector(".quote-modal__loading").style.display = "grid";
@@ -58,8 +72,10 @@
   function closeModal() {
     if (!modal) return;
     modal.classList.remove("is-open");
+    document.documentElement.classList.remove("quote-modal-open");
     document.body.classList.remove("quote-modal-open");
     frame.src = "about:blank";
+    window.scrollTo({ top: lockedScrollY, left: window.scrollX, behavior: "auto" });
     if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
   }
 
@@ -73,4 +89,10 @@
       closeModal();
     }
   });
+
+  window.addEventListener("resize", setModalPosition);
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener("resize", setModalPosition);
+    window.visualViewport.addEventListener("scroll", setModalPosition);
+  }
 })();
