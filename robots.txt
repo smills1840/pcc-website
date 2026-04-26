@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /admin-index.html
+Disallow: /functions/
+Disallow: /_data/
+Disallow: /_projects/
+
+Sitemap: https://prestigeconcretecoatings.com/sitemap.xml

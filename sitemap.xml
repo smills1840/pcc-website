@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://prestigeconcretecoatings.com/</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://prestigeconcretecoatings.com/assets/hero-epoxy-floor.jpg</image:loc>
+      <image:title>Epoxy garage floors and concrete coatings in Southwest Virginia</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://prestigeconcretecoatings.com/residential-epoxy</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://prestigeconcretecoatings.com/assets/residential-hero.webp</image:loc>
+      <image:title>Residential epoxy garage floor coating</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://prestigeconcretecoatings.com/garage-makeovers</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://prestigeconcretecoatings.com/assets/garage-hero.webp</image:loc>
+      <image:title>Garage floor coating makeover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://prestigeconcretecoatings.com/commercial-coatings</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://prestigeconcretecoatings.com/assets/commercial-hangar.webp</image:loc>
+      <image:title>Commercial concrete floor coating</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://prestigeconcretecoatings.com/polished-concrete</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://prestigeconcretecoatings.com/assets/polished-retail.webp</image:loc>
+      <image:title>Commercial polished concrete floor</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://prestigeconcretecoatings.com/service-areas</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://prestigeconcretecoatings.com/gallery</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://prestigeconcretecoatings.com/assets/fairlawn-va-2-car-garage-epoxy-flake-1.webp</image:loc>
+      <image:title>Completed epoxy garage floor project gallery</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://prestigeconcretecoatings.com/contact</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://prestigeconcretecoatings.com/privacy</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.25</priority>
+  </url>
+  <url>
+    <loc>https://prestigeconcretecoatings.com/terms</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.25</priority>
+  </url>
+</urlset>
