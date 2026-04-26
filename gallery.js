@@ -67,6 +67,8 @@
       description: project.description || "",
       featured: Boolean(project.featured),
       date: project.date || "",
+      permalink: project.permalink || "",
+      source: project.source || "",
       images: images.map(normalizeAssetPath).filter(Boolean),
     };
   }
@@ -171,6 +173,7 @@
         <h2 class="project-lightbox__title"></h2>
         <div class="project-lightbox__location"></div>
         <p class="project-lightbox__description"></p>
+        <a class="project-lightbox__source" href="#" target="_blank" rel="noopener">View original post</a>
         <div class="project-lightbox__thumbs" aria-label="Project photos"></div>
       </aside>
     `;
@@ -199,6 +202,14 @@
     lightbox.querySelector(".project-lightbox__title").textContent = project.title;
     lightbox.querySelector(".project-lightbox__location").textContent = project.location;
     lightbox.querySelector(".project-lightbox__description").textContent = project.description;
+    const sourceLink = lightbox.querySelector(".project-lightbox__source");
+    if (project.permalink) {
+      sourceLink.href = project.permalink;
+      sourceLink.textContent = project.source === "instagram" ? "View on Instagram" : "View on Facebook";
+      sourceLink.style.display = "inline-flex";
+    } else {
+      sourceLink.style.display = "none";
+    }
 
     const previous = lightbox.querySelector(".project-lightbox__prev");
     const next = lightbox.querySelector(".project-lightbox__next");
@@ -260,7 +271,7 @@
     let cmsProjects = [];
     try {
       if (location.protocol !== "file:") {
-        const response = await fetch("/api/projects?t=" + Date.now());
+        const response = await fetch("/api/social-projects?t=" + Date.now());
         if (response.ok) cmsProjects = await response.json();
       }
     } catch {
