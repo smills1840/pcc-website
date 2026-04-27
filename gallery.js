@@ -47,27 +47,53 @@
   function normalizeAssetPath(src) {
     if (!src) return "";
     if (typeof src === "object" && src.photo) src = src.photo;
+    if (typeof src === "object" && src.url) src = src.url;
+    if (typeof src === "object" && src.src) src = src.src;
     src = String(src).trim();
     if (!src) return "";
     if (/^https?:\/\//i.test(src)) return src;
     return src.replace(/^\/+/, "");
   }
 
+  function splitMediaUrls(value) {
+    if (!value) return [];
+    if (Array.isArray(value)) return value;
+    return String(value)
+      .split(/\r?\n|,\s*(?=https?:\/\/)|\|\s*(?=https?:\/\/)/i)
+      .map(part => part.trim())
+      .filter(Boolean);
+  }
+
+  function getCaption(project) {
+    return project.caption || project.message || project.post_caption || project.description || "";
+  }
+
+  function titleFromCaption(caption) {
+    return String(caption || "")
+      .split(/\r?\n/)
+      .map(line => line.replace(/(^|\s)#[\w-]+/g, "").trim())
+      .find(Boolean) || "";
+  }
+
   function normalizeProject(project) {
-    const images = Array.isArray(project.images) && project.images.length
-      ? project.images
-      : project.image
-        ? [project.image]
-        : [];
+    const caption = getCaption(project);
+    const images = [
+      ...splitMediaUrls(project.images),
+      ...splitMediaUrls(project.media_urls),
+      ...splitMediaUrls(project.media_url),
+      ...splitMediaUrls(project.full_image_url),
+      ...splitMediaUrls(project.image_url),
+      ...splitMediaUrls(project.image),
+    ];
 
     return {
-      title: project.title || "Untitled Project",
+      title: project.title || titleFromCaption(caption) || "Untitled Project",
       location: project.location || "Southwest Virginia",
       category: project.category || "garage",
-      description: project.description || "",
+      description: project.description || caption || "",
       featured: Boolean(project.featured),
-      date: project.date || "",
-      permalink: project.source_url || project.permalink || "",
+      date: project.date || project.created_time || project.timestamp || "",
+      permalink: project.source_url || project.permalink || project.post_url || project.url || "",
       source: project.source || "",
       images: images.map(normalizeAssetPath).filter(Boolean),
     };

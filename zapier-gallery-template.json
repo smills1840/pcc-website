@@ -1,12 +1,15 @@
 {
-  "title": "Project title from post caption",
-  "location": "Blacksburg, VA",
+  "title": "First line of the social caption",
+  "location": "Southwest Virginia",
   "category": "garage",
   "images": [
-    "assets/example-project-photo.jpg"
+    "https://example.com/social-image-1.jpg",
+    "https://example.com/social-image-2.jpg",
+    "https://example.com/social-image-3.jpg"
   ],
-  "description": "Short project description from the Facebook or Instagram caption.",
+  "caption": "Full Facebook or Instagram caption goes here.",
   "source_url": "https://www.instagram.com/p/example/",
+  "source": "instagram",
   "featured": false,
   "date": "2026-04-26"
 }
