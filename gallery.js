@@ -64,6 +64,28 @@
       .filter(Boolean);
   }
 
+  function collectNumberedMediaUrls(project) {
+    const fields = [
+      "media_url",
+      "media",
+      "image_url",
+      "image",
+      "photo_url",
+      "photo",
+      "child_media_url",
+      "children_media_url",
+    ];
+    const urls = [];
+
+    fields.forEach(field => {
+      for (let index = 1; index <= 10; index += 1) {
+        urls.push(...splitMediaUrls(project[`${field}_${index}`]));
+      }
+    });
+
+    return urls;
+  }
+
   function getCaption(project) {
     return project.caption || project.message || project.post_caption || project.description || "";
   }
@@ -84,6 +106,11 @@
       ...splitMediaUrls(project.full_image_url),
       ...splitMediaUrls(project.image_url),
       ...splitMediaUrls(project.image),
+      ...splitMediaUrls(project.photo_url),
+      ...splitMediaUrls(project.photo),
+      ...splitMediaUrls(project.children_media_url),
+      ...splitMediaUrls(project.child_media_url),
+      ...collectNumberedMediaUrls(project),
     ];
 
     return {
