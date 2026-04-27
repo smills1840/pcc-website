@@ -1,62 +1,63 @@
 /**
  * Cloudflare Pages Function: /api/projects
- * Reads project JSON files from _projects/ via GitHub API.
- * Falls back gracefully if API is unavailable.
+ * Reads project JSON files from _projects/ and gallery/ via GitHub API.
+ * The gallery/ folder is supported for Zapier-created social post files.
  */
-export async function onRequest(context) {
+export async function onRequest() {
   const corsHeaders = {
     'Access-Control-Allow-Origin': '*',
     'Content-Type': 'application/json',
     'Cache-Control': 'no-store',
   };
 
-  try {
-    // Use GitHub API to list _projects directory
-    const apiUrl = 'https://api.github.com/repos/smills1840/pcc-website/contents/_projects';
+  async function listJsonFiles(folder) {
+    const apiUrl = `https://api.github.com/repos/smills1840/pcc-website/contents/${folder}`;
     const apiRes = await fetch(apiUrl, {
       headers: {
         'Accept': 'application/vnd.github.v3+json',
         'User-Agent': 'pcc-website-gallery/1.0',
       },
-      cf: { cacheTtl: 60 } // Cache at Cloudflare edge for 60 seconds
+      cf: { cacheTtl: 60 },
     });
 
     if (!apiRes.ok) {
-      console.error('GitHub API error:', apiRes.status, await apiRes.text());
-      return new Response(JSON.stringify([]), { headers: corsHeaders });
+      console.error(`GitHub API error for ${folder}:`, apiRes.status, await apiRes.text());
+      return [];
     }
 
     const files = await apiRes.json();
+    if (!Array.isArray(files)) return [];
 
-    if (!Array.isArray(files)) {
-      return new Response(JSON.stringify([]), { headers: corsHeaders });
-    }
-
-    // Filter to JSON files only, exclude manifest and hidden files
-    const jsonFiles = files.filter(f =>
-      f.name.endsWith('.json') &&
-      f.name !== 'manifest.json' &&
-      !f.name.startsWith('.')
+    return files.filter(file =>
+      file.name.endsWith('.json') &&
+      file.name !== 'manifest.json' &&
+      !file.name.startsWith('.')
     );
+  }
 
-    if (jsonFiles.length === 0) {
+  async function readProjectFile(file) {
+    try {
+      const res = await fetch(file.download_url, { cf: { cacheTtl: 60 } });
+      if (!res.ok) return null;
+      return await res.json();
+    } catch (error) {
+      console.error(`Invalid gallery JSON in ${file.path || file.name}:`, error.message);
+      return null;
+    }
+  }
+
+  try {
+    const files = [
+      ...(await listJsonFiles('_projects')),
+      ...(await listJsonFiles('gallery')),
+    ];
+
+    if (!files.length) {
       return new Response(JSON.stringify([]), { headers: corsHeaders });
     }
 
-    // Fetch each project file in parallel
-    const projectFetches = jsonFiles.map(async f => {
-      try {
-        const res = await fetch(f.download_url);
-        if (!res.ok) return null;
-        return await res.json();
-      } catch {
-        return null;
-      }
-    });
+    const projects = (await Promise.all(files.map(readProjectFile))).filter(Boolean);
 
-    const projects = (await Promise.all(projectFetches)).filter(Boolean);
-
-    // Sort: featured first, then newest first
     projects.sort((a, b) => {
       if (a.featured && !b.featured) return -1;
       if (!a.featured && b.featured) return 1;
@@ -64,9 +65,8 @@ export async function onRequest(context) {
     });
 
     return new Response(JSON.stringify(projects), { headers: corsHeaders });
-
-  } catch (e) {
-    console.error('Projects function error:', e);
+  } catch (error) {
+    console.error('Projects function error:', error);
     return new Response(JSON.stringify([]), { headers: corsHeaders });
   }
 }
