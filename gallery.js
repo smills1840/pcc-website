@@ -117,7 +117,7 @@
       title: project.title || titleFromCaption(caption) || "Untitled Project",
       location: project.location || "Southwest Virginia",
       category: project.category || "garage",
-      description: project.description || caption || "",
+      description: project.description || project.summary || caption || "",
       featured: Boolean(project.featured),
       date: project.date || project.created_time || project.timestamp || "",
       permalink: project.source_url || project.permalink || project.post_url || project.url || "",

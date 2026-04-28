@@ -26,12 +26,18 @@ collections:
       - label: "Project Title"
         name: "title"
         widget: "string"
-        hint: "e.g. 2-Car Garage - Full Flake System"
+        hint: "Use a specific title when possible, e.g. Blacksburg VA 2-Car Garage Floor Coating"
 
       - label: "Location"
         name: "location"
         widget: "string"
-        hint: "e.g. Blacksburg, VA"
+        hint: "Use City, State when possible, e.g. Blacksburg, VA. This helps local SEO."
+
+      - label: "SEO Search Phrase"
+        name: "seo_phrase"
+        widget: "string"
+        required: false
+        hint: "Optional. Example: epoxy garage floor Blacksburg VA"
 
       - label: "Category"
         name: "category"
@@ -49,15 +55,36 @@ collections:
         min: 1
         max: 10
         hint: "Upload one or more photos. The first photo is used as the thumbnail."
-        field:
-          label: "Photo"
-          name: "photo"
-          widget: "image"
+        fields:
+          - label: "Photo"
+            name: "photo"
+            widget: "image"
+          - label: "Image Description"
+            name: "alt"
+            widget: "string"
+            required: false
+            hint: "Describe the photo for accessibility and search, e.g. full flake garage floor coating in Blacksburg VA"
 
       - label: "Description"
         name: "description"
         widget: "text"
-        hint: "2-3 sentences about the project, system used, challenge, and result"
+        hint: "2-3 sentences about the project, city, system used, challenge, and result. Mention the service and location naturally."
+
+      - label: "Services Used"
+        name: "services"
+        widget: "list"
+        required: false
+        hint: "Optional. Add phrases like concrete grinding, crack repair, full flake epoxy, polyaspartic topcoat."
+        field:
+          label: "Service"
+          name: "service"
+          widget: "string"
+
+      - label: "Short SEO Summary"
+        name: "summary"
+        widget: "string"
+        required: false
+        hint: "Optional one-sentence summary for future SEO/project detail pages."
 
       - label: "Original Social Post URL"
         name: "source_url"
